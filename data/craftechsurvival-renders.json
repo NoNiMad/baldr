@@ -1,0 +1,33 @@
+{
+  "requiredMod": "survival",
+  "folderName": "craftechsurvival-renders",
+  "contentFiles": {
+    "soda_green": "9a6274e8567c3cc293d3226f44a5f130",
+    "energizer_blue": "99c4b806395d7aa046e9148e51336cee",
+    "fireaxe": "2e89d8fb752c6081390e75452b217169",
+    "backpack_forest": "965ccd8ad8fd8b0c0118f12d21e15927",
+    "soda_red": "647a10b9d442f0734f2ed47f4dcd9eba",
+    "bottle": "7806555c32abc3c3c0b2996b2c2f9746",
+    "machete": "59d5a8e1ed6079eb9f939fae2442d629",
+    "baseball_bat_nail": "ae5d5257eb786218378f4956f4160c4a",
+    "can_open_red": "f910c5915ff778ebfda106223b3aa7fb",
+    "chainsaw": "85fc7ac8881c1023cd173fd326d7798e",
+    "helmet": "837896be6f84bcb5e033bbbd8bc967ae",
+    "energizer_red": "dfe8020248828f58394e288d5b0cc2c1",
+    "can_open_orange": "6ccb648deec2720524e24b5b59e3eb92",
+    "can_open_grey": "ab6bd90aab7690225d81562cf0cd70ef",
+    "can_open_blue": "3593d5ef17e284c40e921f3f1f1aa115",
+    "baseball_bat": "9d796db91607dbb499b1d6ab2b394b63",
+    "chocolate_bar": "1cab33aa8194e68f00147e00e36be292",
+    "backpack_desert": "94d6016acb504f079d3e1375d8dc6b61",
+    "cereal_bar": "2010fd3a2d7e81c8c25074fead080b60",
+    "knife": "fb1054252c7e47a89a98381be07294a4",
+    "bulletproof_jacket": "ad047d8b00d1f946c43de80ce74f9c61",
+    "soda_purple": "497b658f117f40d935973ebce86d6eec",
+    "energizer_orange": "a351a1cb9fa1dba8de2ca8633ddf2c70",
+    "splint": "28892a9c7d727d36b8c1c1db42c234ea",
+    "can_open_green": "f38bc044cc8a70ef671881ffd89a8e55",
+    "soda_blue": "43f90a2f513ae363ab865222a95c7c9d"
+  },
+  "resourceFiles": {}
+}

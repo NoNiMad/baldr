@@ -1,0 +1,80 @@
+{
+  "name": "Railcraft2",
+  "material": "rock",
+  "descriptors": [
+    {
+      "name": "BloodStained 1",
+      "blockHardness": "300",
+      "blockResistance": "300",
+      "texture": "brick.bloodstained.1",
+      "lightning": 0
+    },
+    {
+      "name": "BloodStained 2",
+      "blockHardness": "300",
+      "blockResistance": "300",
+      "texture": "brick.bloodstained.2"
+    },
+    {
+      "name": "BloodStained 3",
+      "blockHardness": "300",
+      "blockResistance": "300",
+      "texture": "brick.bloodstained.3"
+    },
+    {
+      "name": "BloodStained 4",
+      "blockHardness": "300",
+      "blockResistance": "300",
+      "texture": "brick.bloodstained.4"
+    },
+    {
+      "name": "BloodStained 5",
+      "blockHardness": "300",
+      "blockResistance": "300",
+      "texture": "brick.bloodstained.5"
+    },
+    {
+      "name": "BloodStained 6",
+      "blockHardness": "300",
+      "blockResistance": "300",
+      "texture": "brick.bloodstained.6"
+    },
+    {
+      "name": "Frost 1",
+      "blockHardness": "300",
+      "blockResistance": "300",
+      "texture": "brick.frostbound.1"
+    },
+    {
+      "name": "Frost 2",
+      "blockHardness": "300",
+      "blockResistance": "300",
+      "texture": "brick.frostbound.2"
+    },
+    {
+      "name": "Frost 3",
+      "blockHardness": "300",
+      "blockResistance": "300",
+      "texture": "brick.frostbound.3"
+    },
+    {
+      "name": "Frost 4",
+      "blockHardness": "300",
+      "blockResistance": "300",
+      "texture": "brick.frostbound.4"
+    },
+    {
+      "name": "Frost 5",
+      "blockHardness": "300",
+      "blockResistance": "300",
+      "texture": "brick.frostbound.5"
+    },
+    {
+      "name": "Frost 6",
+      "blockHardness": "300",
+      "blockResistance": "300",
+      "texture": "brick.frostbound.6"
+    }
+  ],
+  "isOpaque": true
+}

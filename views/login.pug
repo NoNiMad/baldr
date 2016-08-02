@@ -1,0 +1,22 @@
+doctype html
+html
+    head
+        title Baldr
+        link(rel='stylesheet', href='/style.css')
+        script(src='https://cdn.socket.io/socket.io-1.4.5.js')
+        script(src='https://ajax.googleapis.com/ajax/libs/jquery/2.2.3/jquery.min.js')
+    body
+      ul#flashmsg
+          if flashmsg
+              li(class=flashmsg.type)= flashmsg.msg
+      div#loginForm
+          div.formTitle Connexion
+          form(method="POST", action="/login")
+              input(name="name", placeholder="Nom d'utilisateur")
+              br
+              input(name="pass", type="password", placeholder="Mot de passe", autocomplete="off")
+              br
+              button Se connecter
+
+      script(src="/login.js")
+      script(src="/flash.js")

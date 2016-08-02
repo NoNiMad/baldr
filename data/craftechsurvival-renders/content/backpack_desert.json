@@ -1,0 +1,14 @@
+{
+  "name": "backpack_desert",
+  "modelName": "backpack",
+  "textureName": "backpack_desert",
+  "isOpaque": true,
+  "firstPersonRotation": [],
+  "thirdPersonRotation": [],
+  "inventoryRotation": [],
+  "lootRotation": [],
+  "inventoryPos": [],
+  "scale": 1.2,
+  "inventoryScale": 1.2,
+  "lootScale": 2.0
+}

@@ -1,0 +1,30 @@
+{
+  "name": "groupcore",
+  "properties": [
+    {
+      "propertyName": "name",
+      "propertyType": "STRING",
+      "defaultValue": "New_Weapon"
+    },
+    {
+      "propertyName": "fireRate",
+      "propertyType": "DECIMAL",
+      "defaultValue": 2.0
+    },
+    {
+      "propertyName": "fireRange",
+      "propertyType": "DECIMAL",
+      "defaultValue": 30.0
+    },
+    {
+      "propertyName": "bulletSpeed",
+      "propertyType": "DECIMAL",
+      "defaultValue": 1.0
+    },
+    {
+      "propertyName": "zoomCapacity",
+      "propertyType": "DECIMAL",
+      "defaultValue": 2.5
+    }
+  ]
+}

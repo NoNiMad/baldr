@@ -1,0 +1,11 @@
+{
+  "name": "1Raicraft3",
+  "descriptors": [
+    {
+      "name": "Infernal1Stairs",
+      "declinaisonName": "minecraft:dirt",
+      "meta": 0.0,
+      "declinaison": "STAIR"
+    }
+  ]
+}

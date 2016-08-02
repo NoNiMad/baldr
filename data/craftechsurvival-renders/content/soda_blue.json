@@ -1,0 +1,14 @@
+{
+    "name": "soda_blue",
+    "modelName": "soda",
+    "textureName": "soda_blue",
+    "isOpaque": true,
+    "firstPersonRotation": [0.0, 0.0, 0.0],
+    "thirdPersonRotation": [0.0, 0.0, 0.0],
+    "inventoryRotation": [0.0, 0.0, 0.0],
+    "lootRotation": [0.0, 0.0, 0.0],
+    "inventoryPos": [0.0, 3.0],
+    "scale": 1.0,
+    "inventoryScale": 1.0,
+    "lootScale": 1.0
+}

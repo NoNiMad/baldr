@@ -1,0 +1,14 @@
+{
+    "name": "chainsaw",
+    "modelName": "chainsaw",
+    "textureName": "chainsaw",
+    "isOpaque": true,
+    "firstPersonRotation": [45.0, 0.0, 0.0],
+    "thirdPersonRotation": [0.0, 0.0, 0.0],
+    "inventoryRotation": [-90.0, -135.0, -90.0],
+    "lootRotation": [90.0, 0.0, 90.0],
+    "inventoryPos": [5.0, -1.5],
+    "scale": 0.15,
+    "inventoryScale": 0.08,
+    "lootScale": 0.2
+}

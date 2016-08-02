@@ -1,0 +1,14 @@
+{
+  "name": "Route",
+  "material": "rock",
+  "isOpaque": true,
+  "descriptors": [
+    {
+      "name": "Route",
+      "blockHardness": 300.0,
+      "blockResistance": 300.0,
+      "lightning": 0,
+      "texture": "road"
+    }
+  ]
+}

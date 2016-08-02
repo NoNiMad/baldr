@@ -1,0 +1,119 @@
+{
+  "name": "ForestryWood1",
+  "material": "wood",
+  "isOpaque": true,
+  "descriptors": [
+    {
+      "name": "Acacia",
+      "blockHardness": 300.0,
+      "blockResistance": 300.0,
+      "lightning": 0,
+      "texture": "planks.acacia"
+    },
+    {
+      "name": "Balsa",
+      "blockHardness": 300.0,
+      "blockResistance": 300.0,
+      "lightning": 0,
+      "texture": "planks.balsa"
+    },
+    {
+      "name": "Baobab",
+      "blockHardness": 300.0,
+      "blockResistance": 300.0,
+      "lightning": 0,
+      "texture": "planks.baobab"
+    },
+    {
+      "name": "Cherry",
+      "blockHardness": 300.0,
+      "blockResistance": 300.0,
+      "lightning": 0,
+      "texture": "planks.cherry"
+    },
+    {
+      "name": "Chestnut",
+      "blockHardness": 1.0,
+      "blockResistance": 1.0,
+      "lightning": 0,
+      "texture": "planks.chestnut"
+    },
+    {
+      "name": "Citrus",
+      "blockHardness": 1.0,
+      "blockResistance": 1.0,
+      "lightning": 0,
+      "texture": "planks.citrus"
+    },
+    {
+      "name": "Cocobolo",
+      "blockHardness": 1.0,
+      "blockResistance": 1.0,
+      "lightning": 0,
+      "texture": "planks.cocobolo"
+    },
+    {
+      "name": "Ebony",
+      "blockHardness": 1.0,
+      "blockResistance": 1.0,
+      "lightning": 0,
+      "texture": "planks.ebony"
+    },
+    {
+      "name": "Giganteum",
+      "blockHardness": 1.0,
+      "blockResistance": 1.0,
+      "lightning": 0,
+      "texture": "planks.giganteum"
+    },
+    {
+      "name": "Greenheart",
+      "blockHardness": 1.0,
+      "blockResistance": 1.0,
+      "lightning": 0,
+      "texture": "planks.greenheart"
+    },
+    {
+      "name": "Ipe",
+      "blockHardness": 1.0,
+      "blockResistance": 1.0,
+      "lightning": 0,
+      "texture": "planks.ipe"
+    },
+    {
+      "name": "Kapok",
+      "blockHardness": 1.0,
+      "blockResistance": 1.0,
+      "lightning": 0,
+      "texture": "planks.kapok"
+    },
+    {
+      "name": "Larch",
+      "blockHardness": 1.0,
+      "blockResistance": 1.0,
+      "lightning": 0,
+      "texture": "planks.larch"
+    },
+    {
+      "name": "Lime",
+      "blockHardness": 1.0,
+      "blockResistance": 1.0,
+      "lightning": 0,
+      "texture": "planks.lime"
+    },
+    {
+      "name": "Mahoe",
+      "blockHardness": 1.0,
+      "blockResistance": 1.0,
+      "lightning": 0,
+      "texture": "planks.mahoe"
+    },
+    {
+      "name": "Mahogany",
+      "blockHardness": 1.0,
+      "blockResistance": 1.0,
+      "lightning": 0,
+      "texture": "planks.mahogany"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "name": "baldr",
+  "version": "1.0.0",
+  "description": "Minecraft content generator for Craftech",
+  "main": "app.js",
+  "dependencies": {
+    "async": "^1.4.0",
+    "body-parser": "^1.13.3",
+    "express-session": "^1.11.3",
+    "multer": "^1.1.0",
+    "murmurhash-native": "^3.2.0",
+    "pug": "^2.0.0-beta3",
+    "session-file-store": "^0.0.16",
+    "sockpress": "^1.0.0"
+  },
+  "author": "NoNiMad",
+  "license": "UNLICENSED"
+}

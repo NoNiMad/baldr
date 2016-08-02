@@ -1,0 +1,56 @@
+{
+  "name": "Concrete",
+  "material": "rock",
+  "isOpaque": true,
+  "descriptors": [
+    {
+      "name": "concrete",
+      "blockHardness": 300.0,
+      "blockResistance": 300.0,
+      "lightning": 0,
+      "texture": "conc7"
+    },
+    {
+      "name": "concrete",
+      "blockHardness": 300.0,
+      "blockResistance": 300.0,
+      "lightning": 0,
+      "texture": "conc1"
+    },
+    {
+      "name": "concrete",
+      "blockHardness": 300.0,
+      "blockResistance": 300.0,
+      "lightning": 0,
+      "texture": "conc2"
+    },
+    {
+      "name": "concrete",
+      "blockHardness": 300.0,
+      "blockResistance": 300.0,
+      "lightning": 0,
+      "texture": "conc3"
+    },
+    {
+      "name": "concrete",
+      "blockHardness": 300.0,
+      "blockResistance": 300.0,
+      "lightning": 0,
+      "texture": "conc4"
+    },
+    {
+      "name": "concrete",
+      "blockHardness": 300.0,
+      "blockResistance": 300.0,
+      "lightning": 0,
+      "texture": "conc5"
+    },
+    {
+      "name": "concrete",
+      "blockHardness": 300.0,
+      "blockResistance": 300.0,
+      "lightning": 0,
+      "texture": "conc6"
+    }
+  ]
+}

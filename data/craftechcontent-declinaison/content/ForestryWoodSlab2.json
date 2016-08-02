@@ -1,0 +1,83 @@
+{
+  "name": "ForestryWoodSlab2",
+  "descriptors": [
+    {
+      "name": "MapleSlab",
+      "declinaisonName": "craftechcontentmod:ForestryWood2",
+      "meta": 0.0,
+      "declinaison": "SLAB"
+    },
+    {
+      "name": "PadaukSlab",
+      "declinaisonName": "craftechcontentmod:ForestryWood2",
+      "meta": 1.0,
+      "declinaison": "SLAB"
+    },
+    {
+      "name": "PalmSlab",
+      "declinaisonName": "craftechcontentmod:ForestryWood2",
+      "meta": 2.0,
+      "declinaison": "SLAB"
+    },
+    {
+      "name": "PapayaSlab",
+      "declinaisonName": "craftechcontentmod:ForestryWood2",
+      "meta": 3.0,
+      "declinaison": "SLAB"
+    },
+    {
+      "name": "PineSlab",
+      "declinaisonName": "craftechcontentmod:ForestryWood2",
+      "meta": 4.0,
+      "declinaison": "SLAB"
+    },
+    {
+      "name": "PlumSlab",
+      "declinaisonName": "craftechcontentmod:ForestryWood2",
+      "meta": 5.0,
+      "declinaison": "SLAB"
+    },
+    {
+      "name": "PoplarSlab",
+      "declinaisonName": "craftechcontentmod:ForestryWood2",
+      "meta": 6.0,
+      "declinaison": "SLAB"
+    },
+    {
+      "name": "SequoiaSlab",
+      "declinaisonName": "craftechcontentmod:ForestryWood2",
+      "meta": 7.0,
+      "declinaison": "SLAB"
+    },
+    {
+      "name": "TeakSlab",
+      "declinaisonName": "craftechcontentmod:ForestryWood2",
+      "meta": 8.0,
+      "declinaison": "SLAB"
+    },
+    {
+      "name": "WalnutSlab",
+      "declinaisonName": "craftechcontentmod:ForestryWood2",
+      "meta": 9.0,
+      "declinaison": "SLAB"
+    },
+    {
+      "name": "WengeSlab",
+      "declinaisonName": "craftechcontentmod:ForestryWood2",
+      "meta": 10.0,
+      "declinaison": "SLAB"
+    },
+    {
+      "name": "WillowSlab",
+      "declinaisonName": "craftechcontentmod:ForestryWood2",
+      "meta": 11.0,
+      "declinaison": "SLAB"
+    },
+    {
+      "name": "ZebrawoodSlab",
+      "declinaisonName": "craftechcontentmod:ForestryWood2",
+      "meta": 12.0,
+      "declinaison": "SLAB"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "name": "RailcraftPost",
+  "material": "iron",
+  "isOpaque": true,
+  "descriptors": [
+    {
+      "name": "PostBlanc",
+      "blockHardness": 300.0,
+      "blockResistance": 300.0,
+      "lightning": 0,
+      "texture": "post.metal.painted.14"
+    },
+    {
+      "name": "PostOrange",
+      "blockHardness": 300.0,
+      "blockResistance": 300.0,
+      "lightning": 0,
+      "texture": "post.metal.painted.13"
+    },
+    {
+      "name": "PostBleu",
+      "blockHardness": 300.0,
+      "blockResistance": 300.0,
+      "lightning": 0,
+      "texture": "post.metal.painted.12"
+    },
+    {
+      "name": "PostGris",
+      "blockHardness": 300.0,
+      "blockResistance": 300.0,
+      "lightning": 0,
+      "texture": "post.metal.painted.9"
+    },
+    {
+      "name": "PostGrisClair",
+      "blockHardness": 1.0,
+      "blockResistance": 1.0,
+      "lightning": 0,
+      "texture": "post.metal.painted.8"
+    },
+    {
+      "name": "PostRouge",
+      "blockHardness": 300.0,
+      "blockResistance": 300.0,
+      "lightning": 0,
+      "texture": "post.metal.painted.4"
+    },
+    {
+      "name": "PostNoir",
+      "blockHardness": 300.0,
+      "blockResistance": 300.0,
+      "lightning": 0,
+      "texture": "post.metal.painted.1"
+    }
+  ]
+}

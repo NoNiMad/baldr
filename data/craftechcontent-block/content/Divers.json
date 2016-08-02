@@ -1,0 +1,56 @@
+{
+  "name": "Divers",
+  "material": "rock",
+  "isOpaque": true,
+  "descriptors": [
+    {
+      "name": "Ardoise",
+      "blockHardness": 1.0,
+      "blockResistance": 1.0,
+      "lightning": 0,
+      "texture": "ardoise"
+    },
+    {
+      "name": "Station",
+      "blockHardness": 1.0,
+      "blockResistance": 1.0,
+      "lightning": 0,
+      "texture": "station"
+    },
+    {
+      "name": "Sol",
+      "blockHardness": 1.0,
+      "blockResistance": 1.0,
+      "lightning": 0,
+      "texture": "sol"
+    },
+    {
+      "name": "Chemin",
+      "blockHardness": 1.0,
+      "blockResistance": 1.0,
+      "lightning": 0,
+      "texture": "chemin"
+    },
+    {
+      "name": "DarkBricks",
+      "blockHardness": 1.0,
+      "blockResistance": 1.0,
+      "lightning": 0,
+      "texture": "dark_bricks"
+    },
+    {
+      "name": "CrackedDarkBricks",
+      "blockHardness": 1.0,
+      "blockResistance": 1.0,
+      "lightning": 0,
+      "texture": "cracked_dark_bricks"
+    },
+    {
+      "name": "Container",
+      "blockHardness": 1.0,
+      "blockResistance": 1.0,
+      "lightning": 0,
+      "texture": "container"
+    }
+  ]
+}

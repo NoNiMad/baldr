@@ -1,0 +1,19 @@
+extends layout
+
+block content
+    ul#flashmsg
+        if flashmsg
+            li(class=flashmsg.type)= flashmsg.msg
+    ul#descriptorsList
+      each d in descriptorsList
+        li(data-name=d)= d.substr("craftech".length)
+    div#mainContainer
+        ul#descriptorContent
+        div#contentEdition
+            h3 Click on a descriptor to start editing...
+        ul#descriptorResources
+        datalist#resourcesImg
+        datalist#resourcesModel
+
+    script(src="/client.js")
+    script(src="/flash.js")

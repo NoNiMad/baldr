@@ -1,0 +1,12 @@
+{
+  "name": "test1",
+  "descriptors": [
+  {
+    "itemName": "survival:bottle",
+    "value": 0.75
+  },
+  {
+    "itemName": "survival:splint",
+    "value": 0.25
+  }]
+}

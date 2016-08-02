@@ -1,0 +1,10 @@
+{
+  "requiredMod": "survival",
+  "folderName": "craftechsurvival-loots",
+  "contentFiles": {
+    "test2": "cc987d8a912a8bad67ae077fc52e22ca",
+    "test1": "16c6d8fb2de3ea71921141ed10a7aaea",
+    "nourriture1": "2d0ba319ce8d0533761debc3b815c77a"
+  },
+  "resourceFiles": {}
+}

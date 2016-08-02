@@ -1,0 +1,14 @@
+{
+    "name": "machete",
+    "modelName": "machete",
+    "textureName": "machete",
+    "isOpaque": true,
+    "firstPersonRotation": [0.0, 0.0, 180.0],
+    "thirdPersonRotation": [0.0, 0.0, 180.0],
+    "inventoryRotation": [0.0, -90.0, 180.0],
+    "lootRotation": [0.0, 90.0, 0.0],
+    "inventoryPos": [0.0, 5.0],
+    "scale": 0.75,
+    "inventoryScale": 0.45,
+    "lootScale": 1.0
+}

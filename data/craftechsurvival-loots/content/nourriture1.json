@@ -1,0 +1,20 @@
+{
+  "name": "nourriture1",
+  "descriptors": [
+  {
+    "itemName": "survival:can_open_blue",
+    "value": 0.25
+  },
+  {
+    "itemName": "survival:can_open_green",
+    "value": 0.25
+  },
+  {
+    "itemName": "survival:energizer_blue",
+    "value": 0.25
+  },
+  {
+    "itemName": "survival:chocolate_bar",
+    "value": 0.25
+  }]
+}

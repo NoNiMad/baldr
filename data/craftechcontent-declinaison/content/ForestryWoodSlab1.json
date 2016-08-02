@@ -1,0 +1,101 @@
+{
+  "name": "ForestryWoodSlab1",
+  "descriptors": [
+    {
+      "name": "AcaciaSlab",
+      "declinaisonName": "craftechcontentmod:ForestryWood1",
+      "meta": 0.0,
+      "declinaison": "SLAB"
+    },
+    {
+      "name": "BalsaSlab",
+      "declinaisonName": "craftechcontentmod:ForestryWood1",
+      "meta": 1.0,
+      "declinaison": "SLAB"
+    },
+    {
+      "name": "BaobabSlab",
+      "declinaisonName": "craftechcontentmod:ForestryWood1",
+      "meta": 2.0,
+      "declinaison": "SLAB"
+    },
+    {
+      "name": "CherrySlab",
+      "declinaisonName": "craftechcontentmod:ForestryWood1",
+      "meta": 3.0,
+      "declinaison": "SLAB"
+    },
+    {
+      "name": "ChestnutSlab",
+      "declinaisonName": "craftechcontentmod:ForestryWood1",
+      "meta": 4.0,
+      "declinaison": "SLAB"
+    },
+    {
+      "name": "CitrusSlab",
+      "declinaisonName": "craftechcontentmod:ForestryWood1",
+      "meta": 5.0,
+      "declinaison": "SLAB"
+    },
+    {
+      "name": "CocoboloSlab",
+      "declinaisonName": "craftechcontentmod:ForestryWood1",
+      "meta": 6.0,
+      "declinaison": "SLAB"
+    },
+    {
+      "name": "EbonySlab",
+      "declinaisonName": "craftechcontentmod:ForestryWood1",
+      "meta": 7.0,
+      "declinaison": "SLAB"
+    },
+    {
+      "name": "GiganteumSlab",
+      "declinaisonName": "craftechcontentmod:ForestryWood1",
+      "meta": 8.0,
+      "declinaison": "SLAB"
+    },
+    {
+      "name": "GreenheartSlab",
+      "declinaisonName": "craftechcontentmod:ForestryWood1",
+      "meta": 9.0,
+      "declinaison": "SLAB"
+    },
+    {
+      "name": "IpeSlab",
+      "declinaisonName": "craftechcontentmod:ForestryWood1",
+      "meta": 10.0,
+      "declinaison": "SLAB"
+    },
+    {
+      "name": "KapokSlab",
+      "declinaisonName": "craftechcontentmod:ForestryWood1",
+      "meta": 11.0,
+      "declinaison": "SLAB"
+    },
+    {
+      "name": "LarchSlab",
+      "declinaisonName": "craftechcontentmod:ForestryWood1",
+      "meta": 12.0,
+      "declinaison": "SLAB"
+    },
+    {
+      "name": "LimeSlab",
+      "declinaisonName": "craftechcontentmod:ForestryWood1",
+      "meta": 13.0,
+      "declinaison": "SLAB"
+    },
+    {
+      "name": "MahoeSlab",
+      "declinaisonName": "craftechcontentmod:ForestryWood1",
+      "meta": 14.0,
+      "declinaison": "SLAB"
+    },
+    {
+      "name": "MahoganySlab",
+      "declinaisonName": "craftechcontentmod:ForestryWood1",
+      "meta": 15.0,
+      "declinaison": "SLAB"
+    }
+  ]
+}

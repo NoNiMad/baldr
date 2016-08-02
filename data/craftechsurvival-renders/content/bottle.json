@@ -1,0 +1,14 @@
+{
+  "name": "bottle",
+  "modelName": "bottle",
+  "textureName": "bottle",
+  "isOpaque": false,
+  "firstPersonRotation": [],
+  "thirdPersonRotation": [],
+  "inventoryRotation": [],
+  "lootRotation": [],
+  "inventoryPos": [],
+  "scale": 0.6,
+  "inventoryScale": 0.6,
+  "lootScale": 1.0
+}

@@ -1,0 +1,30 @@
+{
+  "name": "groupcore",
+  "properties": [
+    {
+      "propertyName": "name",
+      "propertyType": "STRING",
+      "defaultValue": "Created Block"
+    },
+    {
+      "propertyName": "material",
+      "propertyType": "ENUM",
+      "additionnalData": [
+        "rock",
+        "ground",
+        "grass",
+        "sand",
+        "air",
+        "iron",
+        "cactus",
+        "wood"
+      ],
+      "defaultValue": "rock"
+    },
+    {
+      "propertyName": "isOpaque",
+      "propertyType": "BOOLEAN",
+      "defaultValue": false
+    }
+  ]
+}

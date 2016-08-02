@@ -1,0 +1,7 @@
+{
+  "name": "fr-f2",
+  "fireRate": 2.0,
+  "fireRange": 30.0,
+  "bulletSpeed": 1.0,
+  "zoomCapacity": 2.5
+}

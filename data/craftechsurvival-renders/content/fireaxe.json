@@ -1,0 +1,14 @@
+{
+    "name": "fireaxe",
+    "modelName": "fireaxe",
+    "textureName": "fireaxe",
+    "isOpaque": true,
+    "firstPersonRotation": [0.0, 180.0, 0.0],
+    "thirdPersonRotation": [0.0, 180.0, 0.0],
+    "inventoryRotation": [0.0, 90.0, 0.0],
+    "lootRotation": [0.0, 90.0, 0.0],
+    "inventoryPos": [0.0, 6.0],
+    "scale": 0.25,
+    "inventoryScale": 0.2,
+    "lootScale": 0.4
+}

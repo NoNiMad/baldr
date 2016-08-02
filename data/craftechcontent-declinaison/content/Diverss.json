@@ -1,0 +1,29 @@
+{
+  "name": "Diverss",
+  "descriptors": [
+    {
+      "name": "ArdoiseStairs",
+      "declinaisonName": "craftechcontentmod:Divers",
+      "meta": 0.0,
+      "declinaison": "STAIR"
+    },
+    {
+      "name": "ArdoiseSlab",
+      "declinaisonName": "craftechcontentmod:Divers",
+      "meta": 0.0,
+      "declinaison": "SLAB"
+    },
+    {
+      "name": "DarkBrickStairs",
+      "declinaisonName": "craftechcontentmod:Divers",
+      "meta": 4.0,
+      "declinaison": "STAIR"
+    },
+    {
+      "name": "DarkBrickSlab",
+      "declinaisonName": "craftechcontentmod:Divers",
+      "meta": 4.0,
+      "declinaison": "SLAB"
+    }
+  ]
+}

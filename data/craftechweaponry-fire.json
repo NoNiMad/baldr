@@ -1,0 +1,10 @@
+{
+  "requiredMod": "craftechweaponry",
+  "folderName": "craftechweaponry-fire",
+  "contentFiles": {
+    "fr-f2": "b77df2fceef663c47001137f7dd2cfa5"
+  },
+  "resourceFiles": {
+    "craftechweaponry-fire.json": "932ebb218c49f71999f1734c53cd48a5"
+  }
+}

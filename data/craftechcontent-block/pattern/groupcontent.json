@@ -1,0 +1,30 @@
+{
+  "name": "groupcontent",
+  "properties": [
+    {
+      "propertyName": "name",
+      "propertyType": "STRING",
+      "defaultValue": "Sub Block"
+    },
+    {
+      "propertyName": "blockHardness",
+      "propertyType": "DECIMAL",
+      "defaultValue": 1
+    },
+    {
+      "propertyName": "blockResistance",
+      "propertyType": "DECIMAL",
+      "defaultValue": 1
+    },
+    {
+      "propertyName": "lightning",
+      "propertyType": "NUMBER",
+      "defaultValue": 0
+    },
+    {
+      "propertyName": "texture",
+      "propertyType": "IMAGE",
+      "defaultValue": "test"
+    }
+  ]
+}

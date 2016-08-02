@@ -1,0 +1,13 @@
+{
+  "mode": "CHECK_INDEX",
+  "contentDescriptors": [
+    "craftechcontent-model",
+    "craftechcontent-multiblock",
+    "craftechcontent-block",
+    "craftechcontent-declinaison",
+    "craftechsurvival-renders",
+    "craftechsurvival-loots",
+    "craftechweaponry-hand",
+    "craftechweaponry-fire"
+   ]
+}

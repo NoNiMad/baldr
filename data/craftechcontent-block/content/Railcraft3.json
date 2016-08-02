@@ -1,0 +1,80 @@
+{
+  "name": "Railcraft3",
+  "material": "rock",
+  "descriptors": [
+    {
+      "name": "Infernal 1",
+      "blockHardness": "300",
+      "blockResistance": "300",
+      "texture": "brick.infernal.1",
+      "lightning": 0
+    },
+    {
+      "name": "Infernal 2",
+      "blockHardness": "300",
+      "blockResistance": "300",
+      "texture": "brick.infernal.2"
+    },
+    {
+      "name": "Infernal 3",
+      "blockHardness": "300",
+      "blockResistance": "300",
+      "texture": "brick.infernal.3"
+    },
+    {
+      "name": "Infernal 4",
+      "blockHardness": "300",
+      "blockResistance": "300",
+      "texture": "brick.infernal.4"
+    },
+    {
+      "name": "Infernal 5",
+      "blockHardness": "300",
+      "blockResistance": "300",
+      "texture": "brick.infernal.5"
+    },
+    {
+      "name": "Infernal 6",
+      "blockHardness": "300",
+      "blockResistance": "300",
+      "texture": "brick.infernal.6"
+    },
+    {
+      "name": "Nether 1",
+      "blockHardness": "300",
+      "blockResistance": "300",
+      "texture": "brick.nether.1"
+    },
+    {
+      "name": "Nether 2",
+      "blockHardness": "300",
+      "blockResistance": "300",
+      "texture": "brick.nether.2"
+    },
+    {
+      "name": "Nether 3",
+      "blockHardness": "300",
+      "blockResistance": "300",
+      "texture": "brick.nether.3"
+    },
+    {
+      "name": "Nether 4",
+      "blockHardness": "300",
+      "blockResistance": "300",
+      "texture": "brick.nether.4"
+    },
+    {
+      "name": "Nether 5",
+      "blockHardness": "300",
+      "blockResistance": "300",
+      "texture": "brick.nether.5"
+    },
+    {
+      "name": "Nether 6",
+      "blockHardness": "300",
+      "blockResistance": "300",
+      "texture": "brick.nether.6"
+    }
+  ],
+  "isOpaque": true
+}

@@ -1,0 +1,106 @@
+{
+  "name": "groupcore",
+  "properties": [
+    {
+      "propertyName": "name",
+      "propertyType": "STRING",
+      "defaultValue": "New Model"
+    },
+    {
+      "propertyName": "hardness",
+      "propertyType": "DECIMAL",
+      "defaultValue": 1.0
+    },
+    {
+      "propertyName": "resistance",
+      "propertyType": "DECIMAL",
+      "defaultValue": 1.0
+    },
+    {
+      "propertyName": "ligthning",
+      "propertyType": "NUMBER",
+      "defaultValue": 0
+    },
+    {
+      "propertyName": "texture",
+      "propertyType": "IMAGE",
+      "defaultValue": "test"
+    },
+    {
+      "propertyName": "model",
+      "propertyType": "MODEL",
+      "defaultValue": "test"
+    },
+    {
+      "propertyName": "offsetX",
+      "propertyType": "DECIMAL",
+      "defaultValue": 0.0
+    },
+    {
+      "propertyName": "offsetY",
+      "propertyType": "DECIMAL",
+      "defaultValue": 0.0
+    },
+    {
+      "propertyName": "offsetZ",
+      "propertyType": "DECIMAL",
+      "defaultValue": 0.0
+    },
+    {
+      "propertyName": "renderOffsetX",
+      "propertyType": "DECIMAL",
+      "defaultValue": 0.0
+    },
+    {
+      "propertyName": "renderOffsetY",
+      "propertyType": "DECIMAL",
+      "defaultValue": 0.0
+    },
+    {
+      "propertyName": "renderOffsetZ",
+      "propertyType": "DECIMAL",
+      "defaultValue": 0.0
+    },
+    {
+      "propertyName": "width",
+      "propertyType": "DECIMAL",
+      "defaultValue": 1.0
+    },
+    {
+      "propertyName": "height",
+      "propertyType": "DECIMAL",
+      "defaultValue": 1.0
+    },
+    {
+      "propertyName": "length",
+      "propertyType": "DECIMAL",
+      "defaultValue": 1.0
+    },
+    {
+      "propertyName": "material",
+      "propertyType": "ENUM",
+      "additionnalData": [
+        "rock",
+        "ground",
+        "grass",
+        "sand",
+        "air",
+        "iron",
+        "cactus",
+        "wood"
+      ],
+      "defaultValue": "rock"
+    },
+    {
+      "propertyName": "orientable",
+      "propertyType": "ENUM",
+      "additionnalData": [
+        "NONE",
+        "HORIZONTAL",
+        "VERTICAL",
+        "PILLAR"
+      ],
+      "defaultValue": "NONE"
+    }
+  ]
+}

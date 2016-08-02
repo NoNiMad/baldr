@@ -1,0 +1,98 @@
+{
+  "descriptors": [
+    {
+      "name": "Maple",
+      "blockHardness": 300.0,
+      "blockResistance": 300.0,
+      "texture": "planks.maple",
+      "lightning": 0
+    },
+    {
+      "name": "Padauk",
+      "blockHardness": 300.0,
+      "blockResistance": 300.0,
+      "texture": "planks.padauk",
+      "lightning": 0
+    },
+    {
+      "name": "Palm",
+      "blockHardness": 300.0,
+      "blockResistance": 300.0,
+      "texture": "planks.palm",
+      "lightning": 0
+    },
+    {
+      "name": "Papaya",
+      "blockHardness": 300.0,
+      "blockResistance": 300.0,
+      "texture": "planks.papaya",
+      "lightning": 0
+    },
+    {
+      "name": "Pine",
+      "blockHardness": 300.0,
+      "blockResistance": 300.0,
+      "texture": "planks.pine",
+      "lightning": 0
+    },
+    {
+      "name": "Plum",
+      "blockHardness": 20.0,
+      "blockResistance": 3.2,
+      "texture": "planks.plum",
+      "lightning": 0
+    },
+    {
+      "name": "Poplar",
+      "blockHardness": 20.0,
+      "blockResistance": 3.2,
+      "texture": "planks.poplar",
+      "lightning": 0
+    },
+    {
+      "name": "Sequoia",
+      "blockHardness": 20.0,
+      "blockResistance": 3.2,
+      "texture": "planks.sequoia",
+      "lightning": 0
+    },
+    {
+      "name": "Teak",
+      "blockHardness": 20.0,
+      "blockResistance": 3.2,
+      "texture": "planks.teak",
+      "lightning": 0
+    },
+    {
+      "name": "Walnut",
+      "blockHardness": 20.0,
+      "blockResistance": 3.2,
+      "texture": "planks.walnut",
+      "lightning": 0
+    },
+    {
+      "name": "Wenge",
+      "blockHardness": 20.0,
+      "blockResistance": 3.2,
+      "texture": "planks.wenge",
+      "lightning": 0
+    },
+    {
+      "name": "Willow",
+      "blockHardness": 20.0,
+      "blockResistance": 3.2,
+      "texture": "planks.willow",
+      "lightning": 0
+    },
+    {
+      "name": "Zebrawood",
+      "blockHardness": 20.0,
+      "blockResistance": 3.2,
+      "texture": "planks.zebrawood",
+      "lightning": 0
+    }
+  ],
+  "name": "ForestryWood2",
+  "material": "wood",
+  "isOpaque": true
+}

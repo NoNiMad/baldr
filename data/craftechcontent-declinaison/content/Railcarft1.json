@@ -1,0 +1,149 @@
+{
+  "name": "Railcarft1",
+  "descriptors": [
+    {
+      "name": "Abyssal1Stairs",
+      "declinaisonName": "craftechcontentmod:Railcraft",
+      "meta": 0.0,
+      "declinaison": "STAIR"
+    },
+    {
+      "name": "Abyssal1Slab",
+      "declinaisonName": "craftechcontentmod:Railcraft",
+      "meta": 0.0,
+      "declinaison": "SLAB"
+    },
+    {
+      "name": "Abyssal2Stairs",
+      "declinaisonName": "craftechcontentmod:Railcraft",
+      "meta": 1.0,
+      "declinaison": "STAIR"
+    },
+    {
+      "name": "Abyssal2Slab",
+      "declinaisonName": "craftechcontentmod:Railcraft",
+      "meta": 1.0,
+      "declinaison": "SLAB"
+    },
+    {
+      "name": "Abyssal3Stairs",
+      "declinaisonName": "craftechcontentmod:Railcraft",
+      "meta": 2.0,
+      "declinaison": "STAIR"
+    },
+    {
+      "name": "Abyssal3Slab",
+      "declinaisonName": "craftechcontentmod:Railcraft",
+      "meta": 2.0,
+      "declinaison": "SLAB"
+    },
+    {
+      "name": "Abyssal4Stairs",
+      "declinaisonName": "craftechcontentmod:Railcraft",
+      "meta": 3.0,
+      "declinaison": "STAIR"
+    },
+    {
+      "name": "Abyssal4Slab",
+      "declinaisonName": "craftechcontentmod:Railcraft",
+      "meta": 3.0,
+      "declinaison": "SLAB"
+    },
+    {
+      "name": "Abyssal5Stairs",
+      "declinaisonName": "craftechcontentmod:Railcraft",
+      "meta": 4.0,
+      "declinaison": "STAIR"
+    },
+    {
+      "name": "Abyssal5Slab",
+      "declinaisonName": "craftechcontentmod:Railcraft",
+      "meta": 4.0,
+      "declinaison": "SLAB"
+    },
+    {
+      "name": "Abyssal6Stairs",
+      "declinaisonName": "craftechcontentmod:Railcraft",
+      "meta": 5.0,
+      "declinaison": "STAIR"
+    },
+    {
+      "name": "Abyssal6Slab",
+      "declinaisonName": "craftechcontentmod:Railcraft",
+      "meta": 5.0,
+      "declinaison": "SLAB"
+    },
+    {
+      "name": "Bleached1Stairs",
+      "declinaisonName": "craftechcontentmod:Railcraft",
+      "meta": 6.0,
+      "declinaison": "STAIR"
+    },
+    {
+      "name": "Bleached1Slab",
+      "declinaisonName": "craftechcontentmod:Railcraft",
+      "meta": 6.0,
+      "declinaison": "SLAB"
+    },
+    {
+      "name": "Bleached2Stairs",
+      "declinaisonName": "craftechcontentmod:Railcraft",
+      "meta": 7.0,
+      "declinaison": "STAIR"
+    },
+    {
+      "name": "Bleached2Slab",
+      "declinaisonName": "craftechcontentmod:Railcraft",
+      "meta": 7.0,
+      "declinaison": "SLAB"
+    },
+    {
+      "name": "Bleached3Stairs",
+      "declinaisonName": "craftechcontentmod:Railcraft",
+      "meta": 8.0,
+      "declinaison": "SLAB"
+    },
+    {
+      "name": "Bleached3Slab",
+      "declinaisonName": "craftechcontentmod:Railcraft",
+      "meta": 8.0,
+      "declinaison": "SLAB"
+    },
+    {
+      "name": "Bleached4Stairs",
+      "declinaisonName": "craftechcontentmod:Railcraft",
+      "meta": 9.0,
+      "declinaison": "STAIR"
+    },
+    {
+      "name": "Bleached4Slab",
+      "declinaisonName": "craftechcontentmod:Railcraft",
+      "meta": 9.0,
+      "declinaison": "SLAB"
+    },
+    {
+      "name": "Bleached5Stairs",
+      "declinaisonName": "craftechcontentmod:Railcraft",
+      "meta": 10.0,
+      "declinaison": "STAIR"
+    },
+    {
+      "name": "Bleached5Slab",
+      "declinaisonName": "craftechcontentmod:Railcraft",
+      "meta": 10.0,
+      "declinaison": "SLAB"
+    },
+    {
+      "name": "Bleached6Stairs",
+      "declinaisonName": "craftechcontentmod:Railcraft",
+      "meta": 11.0,
+      "declinaison": "STAIR"
+    },
+    {
+      "name": "Bleached6Slab",
+      "declinaisonName": "craftechcontentmod:Railcraft",
+      "meta": 11.0,
+      "declinaison": "SLAB"
+    }
+  ]
+}

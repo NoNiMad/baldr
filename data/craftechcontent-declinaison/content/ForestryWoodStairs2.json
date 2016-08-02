@@ -1,0 +1,83 @@
+{
+  "name": "ForestryWoodStairs2",
+  "descriptors": [
+    {
+      "name": "MapleStairs",
+      "declinaisonName": "craftechcontentmod:ForestryWood2",
+      "meta": 0.0,
+      "declinaison": "STAIR"
+    },
+    {
+      "name": "PadaukStairs",
+      "declinaisonName": "craftechcontentmod:ForestryWood2",
+      "meta": 1.0,
+      "declinaison": "STAIR"
+    },
+    {
+      "name": "PalmStairs",
+      "declinaisonName": "craftechcontentmod:ForestryWood2",
+      "meta": 2.0,
+      "declinaison": "STAIR"
+    },
+    {
+      "name": "PapayaStairs",
+      "declinaisonName": "craftechcontentmod:ForestryWood2",
+      "meta": 3.0,
+      "declinaison": "STAIR"
+    },
+    {
+      "name": "PineStairs",
+      "declinaisonName": "craftechcontentmod:ForestryWood2",
+      "meta": 4.0,
+      "declinaison": "STAIR"
+    },
+    {
+      "name": "PlumStairs",
+      "declinaisonName": "craftechcontentmod:ForestryWood2",
+      "meta": 5.0,
+      "declinaison": "STAIR"
+    },
+    {
+      "name": "PoplarStairs",
+      "declinaisonName": "craftechcontentmod:ForestryWood2",
+      "meta": 6.0,
+      "declinaison": "STAIR"
+    },
+    {
+      "name": "SequoiaStairs",
+      "declinaisonName": "craftechcontentmod:ForestryWood2",
+      "meta": 7.0,
+      "declinaison": "STAIR"
+    },
+    {
+      "name": "TeakStairs",
+      "declinaisonName": "craftechcontentmod:ForestryWood2",
+      "meta": 8.0,
+      "declinaison": "STAIR"
+    },
+    {
+      "name": "WalnutStairs",
+      "declinaisonName": "craftechcontentmod:ForestryWood2",
+      "meta": 9.0,
+      "declinaison": "STAIR"
+    },
+    {
+      "name": "WengeStairs",
+      "declinaisonName": "craftechcontentmod:ForestryWood2",
+      "meta": 10.0,
+      "declinaison": "STAIR"
+    },
+    {
+      "name": "WillowStairs",
+      "declinaisonName": "craftechcontentmod:ForestryWood2",
+      "meta": 11.0,
+      "declinaison": "STAIR"
+    },
+    {
+      "name": "ZebrawoodStairs",
+      "declinaisonName": "craftechcontentmod:ForestryWood2",
+      "meta": 12.0,
+      "declinaison": "STAIR"
+    }
+  ]
+}

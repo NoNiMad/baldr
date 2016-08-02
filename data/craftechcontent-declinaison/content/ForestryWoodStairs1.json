@@ -1,0 +1,101 @@
+{
+  "name": "ForestryWoodStairs1",
+  "descriptors": [
+    {
+      "name": "AcaciaStairs",
+      "declinaisonName": "craftechcontentmod:ForestryWood1",
+      "meta": 0.0,
+      "declinaison": "STAIR"
+    },
+    {
+      "name": "BalsaStairs",
+      "declinaisonName": "craftechcontentmod:ForestryWood1",
+      "meta": 1.0,
+      "declinaison": "STAIR"
+    },
+    {
+      "name": "BaobabStairs",
+      "declinaisonName": "craftechcontentmod:ForestryWood1",
+      "meta": 2.0,
+      "declinaison": "STAIR"
+    },
+    {
+      "name": "CherryStairs",
+      "declinaisonName": "craftechcontentmod:ForestryWood1",
+      "meta": 3.0,
+      "declinaison": "STAIR"
+    },
+    {
+      "name": "ChesnutStairs",
+      "declinaisonName": "craftechcontentmod:ForestryWood1",
+      "meta": 4.0,
+      "declinaison": "STAIR"
+    },
+    {
+      "name": "CitrusStairs",
+      "declinaisonName": "craftechcontentmod:ForestryWood1",
+      "meta": 5.0,
+      "declinaison": "STAIR"
+    },
+    {
+      "name": "CocoboloStairs",
+      "declinaisonName": "craftechcontentmod:ForestryWood1",
+      "meta": 6.0,
+      "declinaison": "STAIR"
+    },
+    {
+      "name": "EbonyStairs",
+      "declinaisonName": "craftechcontentmod:ForestryWood1",
+      "meta": 7.0,
+      "declinaison": "STAIR"
+    },
+    {
+      "name": "GiganteumStairs",
+      "declinaisonName": "craftechcontentmod:ForestryWood1",
+      "meta": 8.0,
+      "declinaison": "STAIR"
+    },
+    {
+      "name": "GreenheartStairs",
+      "declinaisonName": "craftechcontentmod:ForestryWood1",
+      "meta": 9.0,
+      "declinaison": "STAIR"
+    },
+    {
+      "name": "IpeStairs",
+      "declinaisonName": "craftechcontentmod:ForestryWood1",
+      "meta": 10.0,
+      "declinaison": "STAIR"
+    },
+    {
+      "name": "KapokStairs",
+      "declinaisonName": "craftechcontentmod:ForestryWood1",
+      "meta": 11.0,
+      "declinaison": "STAIR"
+    },
+    {
+      "name": "LarchStairs",
+      "declinaisonName": "craftechcontentmod:ForestryWood1",
+      "meta": 12.0,
+      "declinaison": "STAIR"
+    },
+    {
+      "name": "LimeStairs",
+      "declinaisonName": "craftechcontentmod:ForestryWood1",
+      "meta": 13.0,
+      "declinaison": "STAIR"
+    },
+    {
+      "name": "MahoeStairs",
+      "declinaisonName": "craftechcontentmod:ForestryWood1",
+      "meta": 14.0,
+      "declinaison": "STAIR"
+    },
+    {
+      "name": "MahoganyStairs",
+      "declinaisonName": "craftechcontentmod:ForestryWood1",
+      "meta": 15.0,
+      "declinaison": "STAIR"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "name": "test2",
+  "descriptors": [
+  {
+    "itemName": "survival:soda_blue",
+    "value": 0.25
+  },
+  {
+    "itemName": "survival:soda_green",
+    "value": 0.25
+  },
+  {
+    "itemName": "survival:soda_purple",
+    "value": 0.25
+  },
+  {
+    "itemName": "survival:soda_red",
+    "value": 0.25
+  }]
+}

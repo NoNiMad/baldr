@@ -1,0 +1,17 @@
+{
+  "name": "Route",
+  "descriptors": [
+    {
+      "name": "RouteStairs",
+      "declinaisonName": "craftechcontentmod:Route",
+      "meta": 0.0,
+      "declinaison": "STAIR"
+    },
+    {
+      "name": "RouteSlab",
+      "declinaisonName": "craftechcontentmod:Route",
+      "meta": 0.0,
+      "declinaison": "SLAB"
+    }
+  ]
+}

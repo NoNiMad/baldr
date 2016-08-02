@@ -1,0 +1,14 @@
+{
+    "name": "knife",
+    "modelName": "knife",
+    "textureName": "knife",
+    "isOpaque": true,
+    "firstPersonRotation": [0.0, -90.0, 0.0],
+    "thirdPersonRotation": [0.0, -90.0, 0.0],
+    "inventoryRotation": [0.0, 180.0, 0.0],
+    "lootRotation": [0.0, 0.0, 0.0],
+    "inventoryPos": [0.0, 3.5],
+    "scale": 1.0,
+    "inventoryScale": 1.0,
+    "lootScale": 1.0
+}

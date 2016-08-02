@@ -1,0 +1,11 @@
+{
+  "name": "Raicraft3",
+  "descriptors": [
+    {
+      "name": "DeclinaisonDePierre",
+      "declinaisonName": "minecraft:dirt",
+      "meta": 0.0,
+      "declinaison": "STAIR"
+    }
+  ]
+}
