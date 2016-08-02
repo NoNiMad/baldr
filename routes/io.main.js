@@ -20,7 +20,11 @@ module.exports = function(app, dataManager) {
         });
 
         socket.on('content set data', function(data) {
-            dataManager.saveContent(data.descriptor, data.);
+            dataManager.saveContent(data.descriptor, data.content, data.data);
+        });
+
+        socket.on('content set subcontent', function(data) {
+            dataManager.saveContent(data.descriptor, data.content, data.id, data.data);
         });
 
         socket.on('disconnect', function() {  });

@@ -98,6 +98,16 @@ socket.on('descriptor get form', function(data) {
         saveBtn.on('click', function(e) {
             if(activeContent === null) return false;
             // Saving stuff u know
+
+            let data = { descriptor: activeDescriptor, content: activeContent, data: {} };
+            $('#coreForm [name]').each(function(k, v) {
+                let val = $(this).val();
+                if($(this).prop('tagName') === "INPUT" && $(this).attr('type') === "checkbox")
+                    val = $(this).prop('checked');
+                data.data[$(this).attr('name')] = val;
+            });
+            socket.emit('content set data', data);
+
             return false;
         });
         var delBtn = $('<button>');

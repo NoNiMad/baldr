@@ -64,7 +64,21 @@ module.exports = {
         return hash(fs.readFileSync(this.dataDir + path));
     },
     saveContent: function(descriptor, content, data) {
-        JSON.stringify(data, null, '  ');
-        fs.writeFileSync("filename", data);
+        for(key of Object.keys(data)) {
+            this.contents[descriptor][content][key] = data[key];
+        }
+        let toWrite = JSON.stringify(this.contents[descriptor][content], null, '  ');
+        fs.writeFileSync(this.dataDir + descriptor + '/content/' + content + '.json', toWrite);
+
+        this.contentDescriptors[descriptor].contentFiles[content] = hash(toWrite);
+        fs.writeFileSync(this.dataDir + descriptor + '.json', JSON.stringify(this.contentDescriptors[descriptor], null, '  '));
+    },
+    saveSubContent: function(descriptor, content, id, data) {
+        this.contents[descriptor][content].descriptors[id] = data;
+        let toWrite = JSON.stringify(this.contents[descriptor][content], null, '  ');
+        fs.writeFileSync(this.dataDir + descriptor + '/content/' + content + '.json', toWrite);
+
+        this.contentDescriptors[descriptor].contentFiles[content] = hash(toWrite);
+        fs.writeFileSync(this.dataDir + descriptor + '.json', JSON.stringify(this.contentDescriptors[descriptor], null, '  '));
     }
 }
