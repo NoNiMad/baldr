@@ -20,11 +20,18 @@ module.exports = function(app, dataManager) {
         });
 
         socket.on('content set data', function(data) {
-            dataManager.saveContent(data.descriptor, data.content, data.data);
+            let content = dataManager.saveContent(data.descriptor, data.content, data.data);
+            socket.emit('descriptor get content', {
+                content: Object.keys(dataManager.contentDescriptors[data.descriptor].contentFiles).sort(),
+                resources: Object.keys(dataManager.contentDescriptors[data.descriptor].resourceFiles).sort()
+            });
+            socket.emit('select content', content);
         });
 
         socket.on('content set subcontent', function(data) {
-            dataManager.saveContent(data.descriptor, data.content, data.id, data.data);
+            let id = dataManager.saveSubContent(data.descriptor, data.content, data.id, data.data);
+            socket.emit('select content', data.content);
+            socket.emit('select subcontent', id);
         });
 
         socket.on('disconnect', function() {  });

@@ -96,9 +96,7 @@ socket.on('descriptor get form', function(data) {
         var saveBtn = $('<button>');
         saveBtn.html('Save');
         saveBtn.on('click', function(e) {
-            if(activeContent === null) return false;
             // Saving stuff u know
-
             let data = { descriptor: activeDescriptor, content: activeContent, data: {} };
             $('#coreForm [name]').each(function(k, v) {
                 let val = $(this).val();
@@ -113,7 +111,7 @@ socket.on('descriptor get form', function(data) {
         var delBtn = $('<button>');
         delBtn.html('Delete');
         delBtn.on('click', function(e) {
-            if(activeSubContent === null) return false;
+            if(activeContent === null) return false;
             // Deleting stuff u know
             return false;
         });
@@ -131,6 +129,15 @@ socket.on('descriptor get form', function(data) {
         saveBtn.html('Save');
         saveBtn.on('click', function(e) {
             // Saving stuff u know
+            let data = { descriptor: activeDescriptor, content: activeContent, id: activeSubContent, data: {} };
+            $('#contentForm [name]').each(function(k, v) {
+                let val = $(this).val();
+                if($(this).prop('tagName') === "INPUT" && $(this).attr('type') === "checkbox")
+                    val = $(this).prop('checked');
+                data.data[$(this).attr('name')] = val;
+            });
+            socket.emit('content set subcontent', data);
+
             return false;
         });
         var delBtn = $('<button>');
@@ -148,8 +155,6 @@ socket.on('descriptor get form', function(data) {
         var ul = $('<ul>');
         descList.append(ul);
         editDiv.append(descList);
-
-        createNewSubContentButton();
     }
 });
 
@@ -159,6 +164,18 @@ $('#descriptorContent').on('click', 'li:not(.button):not(.active)', function(e) 
     $('#descriptorContent li.active').removeClass('active');
     $(this).addClass('active');
     activeContent = $(this).attr('data-name');
+    activeSubContent = null;
+    socket.emit('content get data', {
+        descriptorName: activeDescriptor,
+        contentName: activeContent
+    });
+});
+
+socket.on('select content', function(content) {
+    $('#descriptorContent li.active').removeClass('active');
+    $('#descriptorContent li[data-name="' + content + '"]').addClass('active');
+    activeContent = content;
+    activeSubContent = null;
     socket.emit('content get data', {
         descriptorName: activeDescriptor,
         contentName: activeContent
@@ -183,6 +200,10 @@ socket.on('content get data', function(data) {
             var li = $('<li>');
             li.html(desc.name);
             li.attr('data-id', i);
+            if(i === activeSubContent) {
+                li.addClass('active');
+                fillForm(activeContentData.descriptors[i], '#contentForm');
+            }
             li.on('click', subContentClick);
             ul.append(li);
         }
@@ -197,9 +218,13 @@ function subContentClick(e) {
     $('#descList li.active').removeClass('active');
     $(this).addClass('active');
     var subid = $(this).attr('data-id');
-    var activeSubContent = subid;
+    activeSubContent = subid;
     fillForm(activeContentData.descriptors[subid], '#contentForm');
 };
+
+socket.on('select subcontent', function(id) {
+    activeSubContent = id;
+});
 
 // -- Utils functions -- //
 
@@ -216,11 +241,14 @@ function createNewContentButton() {
     newContentBtn.html('New Content');
     newContentBtn.on('click', function(e) {
         $('#contentEdition > h3').html('Creating a new ' + activeDescriptor);
-        emptyForm('#coreForm');
-        emptyForm('#contentForm');
-        $('#descList ul li').slice(1).remove();
+        if(activeDescriptorPattern.groupCore)
+            emptyForm('#coreForm');
+        if(activeDescriptorPattern.groupContent)
+            emptyForm('#contentForm');
+        $('#descList ul li').remove();
         $('#descriptorContent .active').removeClass('active');
-        fillDefault(activeDescriptorPattern.groupCore, '#coreForm');
+        if(activeDescriptorPattern.groupCore)
+            fillDefault(activeDescriptorPattern.groupCore, '#coreForm');
     });
     $('#descriptorContent').append(newContent.append(newContentBtn));
 }
