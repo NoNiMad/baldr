@@ -1,9 +1,0 @@
-{
-  "name": "groupcore",
-  "properties": [
-  	{
-      "propertyName": "name",
-      "propertyType": "STRING",
-      "defaultValue": "NewDeclinaison"
-    }]
-}
