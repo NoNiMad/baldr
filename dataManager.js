@@ -110,5 +110,21 @@ module.exports = {
         fs.writeFileSync(this.dataDir + descriptor + '.json', JSON.stringify(this.contentDescriptors[descriptor], null, '  '));
 
         return id;
+    },
+    deleteContent: function(descriptor, content) {
+        delete this.contents[descriptor][content];
+        delete this.contentDescriptors[descriptor].contentFiles[content];
+        fs.unlinkSync(this.dataDir + descriptor + '/content/' + content + '.json');
+        fs.writeFileSync(this.dataDir + descriptor + '.json', JSON.stringify(this.contentDescriptors[descriptor], null, '  '));
+    },
+    deleteSubContent: function(descriptor, content, id) {
+        let contentObj = this.contents[descriptor][content];
+        contentObj.descriptors.splice(id, 1);
+
+        let toWrite = JSON.stringify(contentObj, null, '  ');
+        fs.writeFileSync(this.dataDir + descriptor + '/content/' + content + '.json', toWrite);
+
+        this.contentDescriptors[descriptor].contentFiles[content] = hash(toWrite);
+        fs.writeFileSync(this.dataDir + descriptor + '.json', JSON.stringify(this.contentDescriptors[descriptor], null, '  '));
     }
 }

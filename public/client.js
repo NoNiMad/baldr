@@ -113,6 +113,9 @@ socket.on('descriptor get form', function(data) {
         delBtn.on('click', function(e) {
             if(activeContent === null) return false;
             // Deleting stuff u know
+            let data = { descriptor: activeDescriptor, content: activeContent };
+            socket.emit('delete content', data);
+            onNewContentButtonClick();
             return false;
         });
         $('#coreForm').append(saveBtn).append(delBtn);
@@ -143,7 +146,11 @@ socket.on('descriptor get form', function(data) {
         var delBtn = $('<button>');
         delBtn.html('Delete');
         delBtn.on('click', function(e) {
+            if(activeSubContent === null) return false;
             // Deleting stuff u know
+            let data = { descriptor: activeDescriptor, content: activeContent, id: activeSubContent };
+            socket.emit('delete subcontent', data);
+            activeSubContent = null;
             return false;
         });
         $('#contentForm').append(saveBtn).append(delBtn);
@@ -239,18 +246,26 @@ function createNewContentButton() {
     newContent.addClass('button');
     var newContentBtn = $('<button>');
     newContentBtn.html('New Content');
-    newContentBtn.on('click', function(e) {
-        $('#contentEdition > h3').html('Creating a new ' + activeDescriptor);
-        if(activeDescriptorPattern.groupCore)
-            emptyForm('#coreForm');
-        if(activeDescriptorPattern.groupContent)
-            emptyForm('#contentForm');
-        $('#descList ul li').remove();
-        $('#descriptorContent .active').removeClass('active');
-        if(activeDescriptorPattern.groupCore)
-            fillDefault(activeDescriptorPattern.groupCore, '#coreForm');
-    });
+    newContentBtn.on('click', onNewContentButtonClick);
     $('#descriptorContent').append(newContent.append(newContentBtn));
+}
+
+function onNewContentButtonClick() {
+    activeContent = null;
+    activeContentData = null;
+    activeSubContent = null;
+    if(activeDescriptorPattern.groupCore) {
+        $('#contentEdition > h3').html('Creating a new ' + activeDescriptor);
+        emptyForm('#coreForm');
+    } else {
+        $('#contentEdition > h3').html('No form to create a new ' + activeDescriptor);
+    }
+    if(activeDescriptorPattern.groupContent)
+        emptyForm('#contentForm');
+    $('#descList ul li').remove();
+    $('#descriptorContent .active').removeClass('active');
+    if(activeDescriptorPattern.groupCore)
+        fillDefault(activeDescriptorPattern.groupCore, '#coreForm');
 }
 
 function createNewSubContentButton() {
@@ -259,6 +274,7 @@ function createNewSubContentButton() {
     var newContentBtn = $('<button>');
     newContentBtn.html('New Sub-Content');
     newContentBtn.on('click', function(e) {
+        activeSubContent = null;
         $('#descList .active').removeClass('active');
         fillDefault(activeDescriptorPattern.groupContent, '#contentForm');
     });

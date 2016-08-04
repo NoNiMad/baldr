@@ -34,6 +34,19 @@ module.exports = function(app, dataManager) {
             socket.emit('select subcontent', id);
         });
 
+        socket.on('delete content', function(data) {
+            dataManager.deleteContent(data.descriptor, data.content);
+            socket.emit('descriptor get content', {
+                content: Object.keys(dataManager.contentDescriptors[data.descriptor].contentFiles).sort(),
+                resources: Object.keys(dataManager.contentDescriptors[data.descriptor].resourceFiles).sort()
+            });
+        });
+
+        socket.on('delete subcontent', function(data) {
+            dataManager.deleteSubContent(data.descriptor, data.content, data.id);
+            socket.emit('select content', data.content);
+        });
+
         socket.on('disconnect', function() {  });
     });
 }
