@@ -1,12 +1,6 @@
 var socket = io();
 //localStorage.debug = '*';
 
-var activeDescriptor = null;
-var activeDescriptorPattern = null;
-var activeContent = null;
-var activeContentData = null;
-var activeSubContent = null;
-
 // Click sur un descriptor
 
 $('#descriptorsList').on('click', 'li', function(e) {
@@ -14,10 +8,10 @@ $('#descriptorsList').on('click', 'li', function(e) {
 
     $('#descriptorsList li.active').removeClass('active');
     $(this).addClass('active');
-    activeDescriptor = $(this).attr('data-name');
+    dataManager.active.setDescriptor($(this).attr('data-name'));
 
-    socket.emit('descriptor get content', activeDescriptor);
-    socket.emit('descriptor get form', activeDescriptor);
+    socket.emit('descriptor get content', dataManager.active.descriptor);
+    socket.emit('descriptor get form', dataManager.active.descriptor);
 });
 
 socket.on('descriptor get content', function(data) {
@@ -46,7 +40,7 @@ socket.on('descriptor get content', function(data) {
 
         if(res.endsWith('png')) {
             var img = $('<img/>');
-            img.attr('src', '/res/' + activeDescriptor + '/' + res);
+            img.attr('src', '/res/' + dataManager.active.descriptor + '/' + res);
             var span = $('<span>');
             span.html(res);
             li.append(img);
@@ -71,20 +65,11 @@ socket.on('descriptor get content', function(data) {
     }
 });
 
-var formTranslationTable = {
-    "STRING": 'string',
-    "BOOLEAN": 'checkbox',
-    "DECIMAL": 'number',
-    "NUMBER": 'number',
-    "IMAGE": 'string',
-    "MODEL": 'string'
-}
-
 // RESTE : ARRAY
 
 socket.on('descriptor get form', function(data) {
-    activeDescriptorPattern = data;
-    cleanUpEditingArea('Creating a new ' + activeDescriptor);
+    dataManager.active.pattern = data;
+    cleanUpEditingArea('Creating a new ' + dataManager.active.descriptor);
     var editDiv = $('#contentEdition');
 
     if(data.groupCore) {
@@ -97,7 +82,7 @@ socket.on('descriptor get form', function(data) {
         saveBtn.html('Save');
         saveBtn.on('click', function(e) {
             // Saving stuff u know
-            let data = { descriptor: activeDescriptor, content: activeContent, data: {} };
+            let data = { descriptor: dataManager.active.descriptor, content: dataManager.active.content, data: {} };
             $('#coreForm [name]').each(function(k, v) {
                 let val = $(this).val();
                 if($(this).prop('tagName') === "INPUT" && $(this).attr('type') === "checkbox")
@@ -111,16 +96,16 @@ socket.on('descriptor get form', function(data) {
         var delBtn = $('<button>');
         delBtn.html('Delete');
         delBtn.on('click', function(e) {
-            if(activeContent === null) return false;
+            if(dataManager.active.content === null) return false;
             // Deleting stuff u know
-            let data = { descriptor: activeDescriptor, content: activeContent };
+            let data = { descriptor: dataManager.active.descriptor, content: dataManager.active.content };
             socket.emit('delete content', data);
             onNewContentButtonClick();
             return false;
         });
         $('#coreForm').append(saveBtn).append(delBtn);
 
-        fillDefault(activeDescriptorPattern.groupCore, '#coreForm');
+        fillDefault(dataManager.active.pattern.groupCore, '#coreForm');
     }
     if(data.groupContent) {
         var contentForm = $('<form>');
@@ -132,7 +117,7 @@ socket.on('descriptor get form', function(data) {
         saveBtn.html('Save');
         saveBtn.on('click', function(e) {
             // Saving stuff u know
-            let data = { descriptor: activeDescriptor, content: activeContent, id: activeSubContent, data: {} };
+            let data = { descriptor: dataManager.active.descriptor, content: dataManager.active.content, id: dataManager.active.subcontent, data: {} };
             $('#contentForm [name]').each(function(k, v) {
                 let val = $(this).val();
                 if($(this).prop('tagName') === "INPUT" && $(this).attr('type') === "checkbox")
@@ -146,15 +131,15 @@ socket.on('descriptor get form', function(data) {
         var delBtn = $('<button>');
         delBtn.html('Delete');
         delBtn.on('click', function(e) {
-            if(activeSubContent === null) return false;
+            if(dataManager.active.subcontent === null) return false;
             // Deleting stuff u know
-            let data = { descriptor: activeDescriptor, content: activeContent, id: activeSubContent };
+            let data = { descriptor: dataManager.active.descriptor, content: dataManager.active.content, id: dataManager.active.subcontent };
             socket.emit('delete subcontent', data);
-            activeSubContent = null;
+            dataManager.active.reset("subcontent");
             return false;
         });
         $('#contentForm').append(saveBtn).append(delBtn);
-        fillDefault(activeDescriptorPattern.groupContent, '#contentForm');
+        fillDefault(dataManager.active.pattern.groupContent, '#contentForm');
 
         var descList = $('<div>');
         descList.attr('id', 'descList');
@@ -170,29 +155,27 @@ socket.on('descriptor get form', function(data) {
 $('#descriptorContent').on('click', 'li:not(.button):not(.active)', function(e) {
     $('#descriptorContent li.active').removeClass('active');
     $(this).addClass('active');
-    activeContent = $(this).attr('data-name');
-    activeSubContent = null;
+    dataManager.active.setContent($(this).attr('data-name'));
     socket.emit('content get data', {
-        descriptorName: activeDescriptor,
-        contentName: activeContent
+        descriptorName: dataManager.active.descriptor,
+        contentName: dataManager.active.content
     });
 });
 
 socket.on('select content', function(content) {
     $('#descriptorContent li.active').removeClass('active');
     $('#descriptorContent li[data-name="' + content + '"]').addClass('active');
-    activeContent = content;
-    activeSubContent = null;
+    dataManager.active.setContent(content);
     socket.emit('content get data', {
-        descriptorName: activeDescriptor,
-        contentName: activeContent
+        descriptorName: dataManager.active.descriptor,
+        contentName: dataManager.active.content
     });
 });
 
 socket.on('content get data', function(data) {
     $('#contentEdition > h3').html('Editing ' + data.name);
 
-    activeContentData = data;
+    dataManager.active.setContentData(data);
     fillForm(data, '#coreForm');
     emptyForm('#contentForm');
 
@@ -200,18 +183,18 @@ socket.on('content get data', function(data) {
         var ul = $('#descList ul');
         ul.empty();
 
-        createNewSubContentButton();
+        createNewSubcontentButton();
 
         for(i in data.descriptors) {
             var desc = data.descriptors[i];
             var li = $('<li>');
             li.html(desc.name);
             li.attr('data-id', i);
-            if(i === activeSubContent) {
+            if(i === dataManager.active.subcontent) {
                 li.addClass('active');
-                fillForm(activeContentData.descriptors[i], '#contentForm');
+                fillForm(dataManager.active.data.descriptors[i], '#contentForm');
             }
-            li.on('click', subContentClick);
+            li.on('click', subcontentClick);
             ul.append(li);
         }
     }
@@ -219,18 +202,18 @@ socket.on('content get data', function(data) {
 
 // Clic sur un sub-descriptor
 
-function subContentClick(e) {
+function subcontentClick(e) {
     if($(this).hasClass('active')) return;
 
     $('#descList li.active').removeClass('active');
     $(this).addClass('active');
-    var subid = $(this).attr('data-id');
-    activeSubContent = subid;
-    fillForm(activeContentData.descriptors[subid], '#contentForm');
+    let id = $(this).attr('data-id');
+    dataManager.active.setSubcontent(id);
+    fillForm(dataManager.active.data.descriptors[id], '#contentForm');
 };
 
 socket.on('select subcontent', function(id) {
-    activeSubContent = id;
+    dataManager.active.setSubcontent(id);
 });
 
 // -- Utils functions -- //
@@ -251,131 +234,36 @@ function createNewContentButton() {
 }
 
 function onNewContentButtonClick() {
-    activeContent = null;
-    activeContentData = null;
-    activeSubContent = null;
-    if(activeDescriptorPattern.groupCore) {
-        $('#contentEdition > h3').html('Creating a new ' + activeDescriptor);
+    dataManager.active.reset("content");
+
+    if(dataManager.active.pattern.groupCore) {
+        $('#contentEdition > h3').html('Creating a new ' + dataManager.active.descriptor);
         emptyForm('#coreForm');
     } else {
-        $('#contentEdition > h3').html('No form to create a new ' + activeDescriptor);
+        $('#contentEdition > h3').html('No form to create a new ' + dataManager.active.descriptor);
     }
-    if(activeDescriptorPattern.groupContent)
+
+    if(dataManager.active.pattern.groupContent)
         emptyForm('#contentForm');
+
     $('#descList ul li').remove();
     $('#descriptorContent .active').removeClass('active');
-    if(activeDescriptorPattern.groupCore)
-        fillDefault(activeDescriptorPattern.groupCore, '#coreForm');
+
+    if(dataManager.active.pattern.groupCore)
+        fillDefault(dataManager.active.pattern.groupCore, '#coreForm');
 }
 
-function createNewSubContentButton() {
+function createNewSubcontentButton() {
     var newContent = $('<li>');
     newContent.addClass('button');
     var newContentBtn = $('<button>');
     newContentBtn.html('New Sub-Content');
     newContentBtn.on('click', function(e) {
-        activeSubContent = null;
+        dataManager.active.reset("subcontent");
         $('#descList .active').removeClass('active');
-        fillDefault(activeDescriptorPattern.groupContent, '#contentForm');
+        fillDefault(dataManager.active.pattern.groupContent, '#contentForm');
     });
     $('#descList ul').append(newContent.append(newContentBtn));
 }
 
-// -- Form Generation Utils -- //
 
-function fillForm(data, form) {
-    for(prop of Object.keys(data)) {
-        var input = $(form + ' [name=' + prop + ']');
-        switch(input.prop('tagName')) {
-            case "SELECT":
-                input.val(data[prop]);
-                break;
-            case "INPUT":
-                switch (input.attr('type')) {
-                    case "string":
-                    case "number":
-                        input.val(data[prop]);
-                        break;
-                    case "checkbox":
-                        input.prop('checked', data[prop]);
-                        break;
-                }
-                break;
-        }
-    }
-}
-
-function fillDefault(data, form) {
-    data = data.properties;
-    for(prop of Object.keys(data)) {
-        var input = $(form + ' [name=' + data[prop].propertyName + ']');
-        switch(input.prop('tagName')) {
-            case "SELECT":
-                input.val(data[prop].defaultValue);
-                break;
-            case "INPUT":
-                switch (input.attr('type')) {
-                    case "string":
-                    case "number":
-                        input.val(data[prop].defaultValue);
-                        break;
-                    case "checkbox":
-                        input.prop('checked', data[prop].defaultValue);
-                        break;
-                }
-                break;
-        }
-    }
-}
-
-function emptyForm(form) {
-    $(form)[0].reset();
-}
-
-function generateForm(data, destDiv) {
-    for(i in data) {
-        var prop = data[i];
-        var label = $('<label>');
-        label.attr('for', prop.propertyName);
-        label.html(prop.propertyName);
-        destDiv.append(label);
-
-        var autoTrans = formTranslationTable[prop.propertyType];
-        if(autoTrans) {
-            var input = $('<input>');
-            input.attr('name', prop.propertyName);
-            input.attr('type', autoTrans);
-
-            switch(prop.propertyType) {
-                case "DECIMAL":
-                    input.attr('step', 'any');
-                    break;
-                case "IMAGE":
-                    input.attr('list', 'resourcesImg');
-                    break;
-                case "MODEL":
-                    input.attr('list', 'resourcesModel');
-                    break;
-            }
-
-            destDiv.append(input);
-        } else {
-            switch (prop.propertyType) {
-                case "ENUM":
-                    var select = $('<select>');
-                    select.attr('name', prop.propertyName);
-                    for(j in prop.additionnalData) {
-                        var value = prop.additionnalData[j];
-                        var option = $('<option>');
-                        option.html(value);
-                        option.val(value);
-                        select.append(option);
-                    }
-                    destDiv.append(select);
-                    break;
-            }
-        }
-
-        destDiv.append($('<br/>'));
-    }
-}
