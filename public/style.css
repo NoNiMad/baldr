@@ -45,14 +45,14 @@ a:hover { text-decoration: underline; }
 
 /* -- Descriptor List -- */
 
-#descriptorsList {
+#descriptorList {
   display: flex;
   align-items: center;
   width: 100%;
   border-bottom: 1px solid gray;
 }
 
-#descriptorsList li {
+#descriptorList li {
   height: 35px;
   padding: 5px;
   line-height: 25px;
@@ -60,8 +60,8 @@ a:hover { text-decoration: underline; }
   text-align: center;
   background-color: #bdc3c7;
 }
-#descriptorsList li.active { background-color: #adb3b7; }
-#descriptorsList li:hover {
+#descriptorList li.active { background-color: #adb3b7; }
+#descriptorList li:hover {
   background-color: #adb3b7;
   cursor: pointer;
 }
@@ -75,22 +75,22 @@ a:hover { text-decoration: underline; }
     height: calc(100% - 36px);
 }
 
-#descriptorContent {
+#contentList {
     width: 200px;
     height: 100%;
     border-right: 1px solid gray;
 }
 
-#descriptorContent li {
+#contentList li {
     padding: 5px;
 }
-#descriptorContent li.active { background-color: #cdd3d7; }
-#descriptorContent li:hover {
+#contentList li.active { background-color: #cdd3d7; }
+#contentList li:hover {
     background-color: #cdd3d7;
     cursor: pointer;
 }
 
-#descriptorResources {
+#resourceList {
     width: 200px;
     height: 100%;
     border-left: 1px solid gray;
@@ -100,15 +100,15 @@ a:hover { text-decoration: underline; }
     text-align: center;
 }
 
-#descriptorResources li {
+#resourceList li {
     padding: 5px;
 }
-#descriptorResources li.active { background-color: #cdd3d7; }
-#descriptorResources li:hover {
+#resourceList li.active { background-color: #cdd3d7; }
+#resourceList li:hover {
     background-color: #cdd3d7;
 }
 
-#descriptorResources li img {
+#resourceList li img {
     display: block;
     width: 172px;
 }
@@ -127,24 +127,24 @@ a:hover { text-decoration: underline; }
     margin-bottom: 20px;
 }
 
-#descList {
+#subcontentList {
     position: absolute;
     top: 20px;
     right: 20px;
     width: 200px;
     border: 1px solid gray;
 }
-#descList h3 {
+#subcontentList h3 {
     padding: 10px;
     border-bottom: 1px solid gray;
     background-color: #cdd3d7;
 }
 
-#descList li {
+#subcontentList li {
     padding: 5px;
 }
-#descList li.active { background-color: #cdd3d7; }
-#descList li:hover {
+#subcontentList li.active { background-color: #cdd3d7; }
+#subcontentList li:hover {
     background-color: #cdd3d7;
     cursor: pointer;
 }

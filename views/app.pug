@@ -4,14 +4,14 @@ block content
     ul#flashmsg
         if flashmsg
             li(class=flashmsg.type)= flashmsg.msg
-    ul#descriptorsList
+    ul#descriptorList
       each d in descriptorsList
         li(data-name=d)= d.substr("craftech".length)
     div#mainContainer
-        ul#descriptorContent
+        ul#contentList
         div#contentEdition
             h3 Click on a descriptor to start editing...
-        ul#descriptorResources
+        ul#resourceList
         datalist#resourcesImg
         datalist#resourcesModel
 

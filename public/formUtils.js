@@ -9,6 +9,34 @@ let formTranslationTable = {
     "MODEL": 'string'
 }
 
+function readForm(form) {
+    let data = {};
+    $(form + ' [name]').each(function(k, v) {
+        let val = $(this).val();
+        if($(this).prop('tagName') === "INPUT" && $(this).attr('type') === "checkbox")
+            val = $(this).prop('checked');
+        data[$(this).attr('name')] = val;
+    });
+    return data;
+}
+
+function createForm(options) {
+    var form = $('<form>');
+    form.attr('id', options.id);
+    generateForm(options.properties, form);
+
+    var saveBtn = $('<button>');
+    saveBtn.html('Save');
+    saveBtn.on('click', options.onSaveClick);
+
+    var delBtn = $('<button>');
+    delBtn.html('Delete');
+    delBtn.on('click', options.onDeleteClick);
+
+    form.append(saveBtn).append(delBtn);
+    return form;
+}
+
 function fillForm(data, form) {
     for(prop of Object.keys(data)) {
         var input = $(form + ' [name=' + prop + ']');

@@ -1,9 +1,7 @@
-// Click sur un descriptor
+// Clic sur un descriptor
 
-$('#descriptorsList').on('click', 'li', function(e) {
-    if($(this).hasClass('active')) return;
-
-    $('#descriptorsList li.active').removeClass('active');
+$('#descriptorList').on('click', 'li:not(.active)', function(e) {
+    $('#descriptorList li.active').removeClass('active');
     $(this).addClass('active');
     dataManager.active.setDescriptor($(this).attr('data-name'));
 
@@ -13,10 +11,11 @@ $('#descriptorsList').on('click', 'li', function(e) {
 
 // Clic sur un élément du descriptor
 
-$('#descriptorContent').on('click', 'li:not(.button):not(.active)', function(e) {
-    $('#descriptorContent li.active').removeClass('active');
+$('#contentList').on('click', 'li:not(.button):not(.active)', function(e) {
+    $('#contentList li.active').removeClass('active');
     $(this).addClass('active');
     dataManager.active.setContent($(this).attr('data-name'));
+
     socket.emit('content get data', {
         descriptorName: dataManager.active.descriptor,
         contentName: dataManager.active.content
@@ -28,7 +27,7 @@ $('#descriptorContent').on('click', 'li:not(.button):not(.active)', function(e) 
 function subcontentClick(e) {
     if($(this).hasClass('active')) return;
 
-    $('#descList li.active').removeClass('active');
+    $('#subcontentList li.active').removeClass('active');
     $(this).addClass('active');
     let id = $(this).attr('data-id');
     dataManager.active.setSubcontent(id);
@@ -43,13 +42,15 @@ function cleanUpEditingArea(newTitle) {
     div.append($('<h3>' + newTitle + '</h3>'));
 }
 
+// -- Boutons "New <smthg>"
+
 function createNewContentButton() {
     var newContent = $('<li>');
     newContent.addClass('button');
     var newContentBtn = $('<button>');
     newContentBtn.html('New Content');
     newContentBtn.on('click', onNewContentButtonClick);
-    $('#descriptorContent').append(newContent.append(newContentBtn));
+    $('#contentList').append(newContent.append(newContentBtn));
 }
 
 function onNewContentButtonClick() {
@@ -65,8 +66,8 @@ function onNewContentButtonClick() {
     if(dataManager.active.pattern.groupContent)
         emptyForm('#contentForm');
 
-    $('#descList ul li').remove();
-    $('#descriptorContent .active').removeClass('active');
+    $('#subcontentList ul li').remove();
+    $('#contentList .active').removeClass('active');
 
     if(dataManager.active.pattern.groupCore)
         fillDefault(dataManager.active.pattern.groupCore, '#coreForm');
@@ -78,13 +79,61 @@ function createNewSubcontentButton() {
     var newContentBtn = $('<button>');
     newContentBtn.html('New Sub-Content');
     newContentBtn.on('click', onNewSubcontentButtonClick);
-    $('#descList ul').append(newContent.append(newContentBtn));
+    $('#subcontentList ul').append(newContent.append(newContentBtn));
 }
 
 function onNewSubcontentButtonClick() {
     dataManager.active.reset("subcontent");
-    $('#descList .active').removeClass('active');
+    $('#subcontentList .active').removeClass('active');
     fillDefault(dataManager.active.pattern.groupContent, '#contentForm');
 }
 
+// -- Formulaires -- //
 
+// GroupCore
+
+function onContentSaveButtonClick() {
+    socket.emit('content set data', {
+        descriptor: dataManager.active.descriptor,
+        content: dataManager.active.content,
+        data: readForm('#coreForm')
+    });
+    return false;
+}
+
+function onContentDeleteButtonClick() {
+    if(dataManager.active.content === null) return false;
+
+    socket.emit('delete content', {
+        descriptor: dataManager.active.descriptor,
+        content: dataManager.active.content
+    });
+    onNewContentButtonClick();
+
+    return false;
+}
+
+// GroupContent
+
+function onSubcontentSaveButtonClick() {
+    socket.emit('content set subcontent', {
+        descriptor: dataManager.active.descriptor,
+        content: dataManager.active.content,
+        id: dataManager.active.subcontent,
+        data: readForm('#contentForm')
+    });
+    return false;
+}
+
+function onSubcontentDeleteButtonClick() {
+    if(dataManager.active.subcontent === null) return false;
+
+    socket.emit('delete subcontent', {
+        descriptor: dataManager.active.descriptor,
+        content: dataManager.active.content,
+        id: dataManager.active.subcontent
+    });
+    onNewSubcontentButtonClick();
+
+    return false;
+}

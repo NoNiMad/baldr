@@ -2,9 +2,11 @@ var socket = io();
 //localStorage.debug = '*';
 
 socket.on('descriptor get content', function(data) {
-    var contentList = $('#descriptorContent');
-    contentList.empty();
+    // Gestion des contenus
 
+    var contentList = $('#contentList');
+
+    contentList.empty();
     createNewContentButton();
 
     for(i in data.content) {
@@ -14,7 +16,9 @@ socket.on('descriptor get content', function(data) {
         contentList.append(li);
     }
 
-    var resourcesList = $('#descriptorResources');
+    // Gestion des ressources
+
+    var resourcesList = $('#resourceList');
     resourcesList.empty();
     var datalistImg = $('#resourcesImg');
     datalistImg.empty();
@@ -53,91 +57,41 @@ socket.on('descriptor get content', function(data) {
 });
 
 socket.on('descriptor get form', function(data) {
-    dataManager.active.pattern = data;
+    dataManager.active.setPattern(data);
     cleanUpEditingArea('Creating a new ' + dataManager.active.descriptor);
     var editDiv = $('#contentEdition');
 
     if(data.groupCore) {
-        var coreForm = $('<form>');
-        coreForm.attr('id', 'coreForm');
-        generateForm(data.groupCore.properties, coreForm);
-        editDiv.append(coreForm);
-
-        var saveBtn = $('<button>');
-        saveBtn.html('Save');
-        saveBtn.on('click', function(e) {
-            // Saving stuff u know
-            let data = { descriptor: dataManager.active.descriptor, content: dataManager.active.content, data: {} };
-            $('#coreForm [name]').each(function(k, v) {
-                let val = $(this).val();
-                if($(this).prop('tagName') === "INPUT" && $(this).attr('type') === "checkbox")
-                    val = $(this).prop('checked');
-                data.data[$(this).attr('name')] = val;
-            });
-            socket.emit('content set data', data);
-
-            return false;
-        });
-        var delBtn = $('<button>');
-        delBtn.html('Delete');
-        delBtn.on('click', function(e) {
-            if(dataManager.active.content === null) return false;
-            // Deleting stuff u know
-            let data = { descriptor: dataManager.active.descriptor, content: dataManager.active.content };
-            socket.emit('delete content', data);
-            onNewContentButtonClick();
-            return false;
-        });
-        $('#coreForm').append(saveBtn).append(delBtn);
-
-        fillDefault(dataManager.active.pattern.groupCore, '#coreForm');
+        editDiv.append(createForm({
+            id: 'coreForm',
+            properties: data.groupCore.properties,
+            onSaveCLick: onContentSaveButtonClick,
+            onDeleteClick: onContentDeleteButtonClick
+        }));
+        fillDefault(data.groupCore, '#coreForm');
     }
+
     if(data.groupContent) {
-        var contentForm = $('<form>');
-        contentForm.attr('id', 'contentForm');
-        generateForm(data.groupContent.properties, contentForm);
-        editDiv.append(contentForm);
+        editDiv.append(createForm({
+            id: 'contentForm',
+            properties: data.groupContent.properties,
+            onSaveCLick: onSubcontentSaveButtonClick,
+            onDeleteClick: onSubcontentDeleteButtonClick
+        }));
 
-        var saveBtn = $('<button>');
-        saveBtn.html('Save');
-        saveBtn.on('click', function(e) {
-            // Saving stuff u know
-            let data = { descriptor: dataManager.active.descriptor, content: dataManager.active.content, id: dataManager.active.subcontent, data: {} };
-            $('#contentForm [name]').each(function(k, v) {
-                let val = $(this).val();
-                if($(this).prop('tagName') === "INPUT" && $(this).attr('type') === "checkbox")
-                    val = $(this).prop('checked');
-                data.data[$(this).attr('name')] = val;
-            });
-            socket.emit('content set subcontent', data);
+        var subcontentList = $('<div>');
+        subcontentList.attr('id', 'subcontentList');
+        subcontentList.append($('<h3>Sub-Descriptors</h3>'));
 
-            return false;
-        });
-        var delBtn = $('<button>');
-        delBtn.html('Delete');
-        delBtn.on('click', function(e) {
-            if(dataManager.active.subcontent === null) return false;
-            // Deleting stuff u know
-            let data = { descriptor: dataManager.active.descriptor, content: dataManager.active.content, id: dataManager.active.subcontent };
-            socket.emit('delete subcontent', data);
-            dataManager.active.reset("subcontent");
-            return false;
-        });
-        $('#contentForm').append(saveBtn).append(delBtn);
-        fillDefault(dataManager.active.pattern.groupContent, '#contentForm');
-
-        var descList = $('<div>');
-        descList.attr('id', 'descList');
-        descList.append($('<h3>Sub-Descriptors</h3>'));
         var ul = $('<ul>');
-        descList.append(ul);
-        editDiv.append(descList);
+        subcontentList.append(ul);
+        editDiv.append(subcontentList);
     }
 });
 
 socket.on('select content', function(content) {
-    $('#descriptorContent li.active').removeClass('active');
-    $('#descriptorContent li[data-name="' + content + '"]').addClass('active');
+    $('#contentList li.active').removeClass('active');
+    $('#contentList li[data-name="' + content + '"]').addClass('active');
     dataManager.active.setContent(content);
     socket.emit('content get data', {
         descriptorName: dataManager.active.descriptor,
@@ -153,7 +107,7 @@ socket.on('content get data', function(data) {
     emptyForm('#contentForm');
 
     if(data.descriptors) {
-        var ul = $('#descList ul');
+        var ul = $('#subcontentList ul');
         ul.empty();
 
         createNewSubcontentButton();
