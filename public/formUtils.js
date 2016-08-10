@@ -21,8 +21,9 @@ function readForm(form) {
 }
 
 function createForm(options) {
-    var form = $('<form>');
+    let form = $('<form>');
     form.attr('id', options.id);
+    form.attr('name', options.name);
     generateForm(options.properties, form);
 
     var saveBtn = $('<button>');
@@ -83,7 +84,8 @@ function fillDefault(data, form) {
 }
 
 function emptyForm(form) {
-    $(form)[0].reset();
+    if($(form)[0])
+        $(form)[0].reset();
 }
 
 function generateForm(data, destDiv) {

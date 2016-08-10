@@ -65,7 +65,7 @@ socket.on('descriptor get form', function(data) {
         editDiv.append(createForm({
             id: 'coreForm',
             properties: data.groupCore.properties,
-            onSaveCLick: onContentSaveButtonClick,
+            onSaveClick: onContentSaveButtonClick,
             onDeleteClick: onContentDeleteButtonClick
         }));
         fillDefault(data.groupCore, '#coreForm');
@@ -75,7 +75,7 @@ socket.on('descriptor get form', function(data) {
         editDiv.append(createForm({
             id: 'contentForm',
             properties: data.groupContent.properties,
-            onSaveCLick: onSubcontentSaveButtonClick,
+            onSaveClick: onSubcontentSaveButtonClick,
             onDeleteClick: onSubcontentDeleteButtonClick
         }));
 
@@ -87,16 +87,6 @@ socket.on('descriptor get form', function(data) {
         subcontentList.append(ul);
         editDiv.append(subcontentList);
     }
-});
-
-socket.on('select content', function(content) {
-    $('#contentList li.active').removeClass('active');
-    $('#contentList li[data-name="' + content + '"]').addClass('active');
-    dataManager.active.setContent(content);
-    socket.emit('content get data', {
-        descriptorName: dataManager.active.descriptor,
-        contentName: dataManager.active.content
-    });
 });
 
 socket.on('content get data', function(data) {
@@ -125,6 +115,16 @@ socket.on('content get data', function(data) {
             ul.append(li);
         }
     }
+});
+
+socket.on('select content', function(content) {
+    $('#contentList li.active').removeClass('active');
+    $('#contentList li[data-name="' + content + '"]').addClass('active');
+    dataManager.active.setContent(content);
+    socket.emit('content get data', {
+        descriptorName: dataManager.active.descriptor,
+        contentName: dataManager.active.content
+    });
 });
 
 socket.on('select subcontent', function(id) {
