@@ -64,6 +64,7 @@ socket.on('descriptor get form', function(data) {
     if(data.groupCore) {
         editDiv.append(createForm({
             id: 'coreForm',
+            name: 'Content',
             properties: data.groupCore.properties,
             onSaveClick: onContentSaveButtonClick,
             onDeleteClick: onContentDeleteButtonClick
@@ -73,19 +74,26 @@ socket.on('descriptor get form', function(data) {
 
     if(data.groupContent) {
         editDiv.append(createForm({
+            id: 'subcontentList',
+            name: 'Subcontent List',
+            properties: [
+                {
+                  "propertyName": "Select one :",
+                  "propertyType": "ENUM",
+                  "additionnalData": [""],
+                  "defaultValue": ""
+                }
+              ]
+        }));
+        createNewSubcontentButton();
+
+        editDiv.append(createForm({
             id: 'contentForm',
+            name: 'Subcontent',
             properties: data.groupContent.properties,
             onSaveClick: onSubcontentSaveButtonClick,
             onDeleteClick: onSubcontentDeleteButtonClick
         }));
-
-        var subcontentList = $('<div>');
-        subcontentList.attr('id', 'subcontentList');
-        subcontentList.append($('<h3>Sub-Descriptors</h3>'));
-
-        var ul = $('<ul>');
-        subcontentList.append(ul);
-        editDiv.append(subcontentList);
     }
 });
 
@@ -97,22 +105,21 @@ socket.on('content get data', function(data) {
     emptyForm('#contentForm');
 
     if(data.descriptors) {
-        var ul = $('#subcontentList ul');
-        ul.empty();
-
-        createNewSubcontentButton();
+        var select = $('#subcontentList select');
+        select.empty();
+        select.append($('<option>'));
 
         for(i in data.descriptors) {
-            var desc = data.descriptors[i];
-            var li = $('<li>');
-            li.html(desc.name);
-            li.attr('data-id', i);
-            if(i === dataManager.active.subcontent) {
-                li.addClass('active');
+            let desc = data.descriptors[i];
+            let option = $('<option>');
+            option.html(desc.name);
+            option.val(i);
+            select.append(option);
+
+            if(dataManager.active.subcontent === i) {
+                select.val(i);
                 fillForm(dataManager.active.data.descriptors[i], '#contentForm');
             }
-            li.on('click', subcontentClick);
-            ul.append(li);
         }
     }
 });

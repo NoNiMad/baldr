@@ -127,47 +127,16 @@ a:hover { text-decoration: underline; }
     margin-bottom: 20px;
 }
 
-#subcontentList {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    width: 200px;
-    border: 1px solid gray;
-}
-#subcontentList h3 {
-    padding: 10px;
-    border-bottom: 1px solid gray;
-    background-color: #cdd3d7;
-}
-
-#subcontentList li {
-    padding: 5px;
-}
-#subcontentList li.active { background-color: #cdd3d7; }
-#subcontentList li:hover {
-    background-color: #cdd3d7;
-    cursor: pointer;
-}
-
 #contentEdition form {
     border: 1px solid black;
-    padding: 20px;
-    width: 402px;
+    padding: 10px;
     margin-bottom: 10px;
 }
 #contentEdition form::before {
     content: attr(name);
     display: block;
     font-size: 20px;
-    margin-bottom: 20px;
-    font-weight: bold;
-}
-
-#contentForm::before {
-    content: "groupcontent";
-    display: block;
-    font-size: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     font-weight: bold;
 }
 
@@ -181,5 +150,5 @@ a:hover { text-decoration: underline; }
 }
 #contentEdition form button {
     width: 178px;
-    margin-top: 20px;
+    margin-top: 10px;
 }

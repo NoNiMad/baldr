@@ -24,15 +24,16 @@ $('#contentList').on('click', 'li:not(.button):not(.active)', function(e) {
 
 // Clic sur un sub-descriptor
 
-function subcontentClick(e) {
-    if($(this).hasClass('active')) return;
-
-    $('#subcontentList li.active').removeClass('active');
-    $(this).addClass('active');
-    let id = $(this).attr('data-id');
+$('#contentEdition').on('change', '#subcontentList select', function(e) {
+    let id = $(this).val();
+    if(id === "") {
+        dataManager.active.reset('subcontent');
+        emptyForm('#contentForm');
+        return;
+    }
     dataManager.active.setSubcontent(id);
     fillForm(dataManager.active.data.descriptors[id], '#contentForm');
-};
+});
 
 // -- Utils functions -- //
 
@@ -74,18 +75,17 @@ function onNewContentButtonClick() {
 }
 
 function createNewSubcontentButton() {
-    var newContent = $('<li>');
-    newContent.addClass('button');
     var newContentBtn = $('<button>');
     newContentBtn.html('New Sub-Content');
     newContentBtn.on('click', onNewSubcontentButtonClick);
-    $('#subcontentList ul').append(newContent.append(newContentBtn));
+    $('#subcontentList').append(newContentBtn);
 }
 
 function onNewSubcontentButtonClick() {
     dataManager.active.reset("subcontent");
     $('#subcontentList .active').removeClass('active');
     fillDefault(dataManager.active.pattern.groupContent, '#contentForm');
+    return false;
 }
 
 // -- Formulaires -- //

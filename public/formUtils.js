@@ -26,15 +26,20 @@ function createForm(options) {
     form.attr('name', options.name);
     generateForm(options.properties, form);
 
-    var saveBtn = $('<button>');
-    saveBtn.html('Save');
-    saveBtn.on('click', options.onSaveClick);
+    if(options.onSaveClick) {
+        let saveBtn = $('<button>');
+        saveBtn.html('Save');
+        saveBtn.on('click', options.onSaveClick);
+        form.append(saveBtn);
+    }
 
-    var delBtn = $('<button>');
-    delBtn.html('Delete');
-    delBtn.on('click', options.onDeleteClick);
+    if(options.onDeleteClick) {
+        let delBtn = $('<button>');
+        delBtn.html('Delete');
+        delBtn.on('click', options.onDeleteClick);
+        form.append(delBtn)
+    }
 
-    form.append(saveBtn).append(delBtn);
     return form;
 }
 
