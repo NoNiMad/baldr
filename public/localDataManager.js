@@ -29,11 +29,11 @@ let dataManager = {
             this.descriptor = desc;
         },
         setPattern: function(pattern) {
-            this.pattern = desc;
+            this.pattern = pattern;
         },
-        setContent: function(desc) {
+        setContent: function(content) {
             this.reset("content");
-            this.content = desc;
+            this.content = content;
         },
         setContentData: function(data) {
             this.data = data;
