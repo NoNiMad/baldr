@@ -15,6 +15,7 @@ $('#contentList').on('click', 'li:not(.button):not(.active)', function(e) {
     $('#contentList li.active').removeClass('active');
     $(this).addClass('active');
     dataManager.active.setContent($(this).attr('data-name'));
+    $('#contentForm').css('display', 'none');
 
     socket.emit('content get data', {
         descriptorName: dataManager.active.descriptor,
@@ -29,10 +30,12 @@ $('#contentEdition').on('change', '#subcontentList select', function(e) {
     if(id === "") {
         dataManager.active.reset('subcontent');
         emptyForm('#contentForm');
+        $('#contentForm').css('display', 'none');
         return;
     }
     dataManager.active.setSubcontent(id);
     fillForm(dataManager.active.data.descriptors[id], '#contentForm');
+    $('#contentForm').css('display', 'block');
 });
 
 // -- Utils functions -- //
@@ -83,8 +86,9 @@ function createNewSubcontentButton() {
 
 function onNewSubcontentButtonClick() {
     dataManager.active.reset("subcontent");
-    $('#subcontentList .active').removeClass('active');
+    $('#subcontentList select').val("");
     fillDefault(dataManager.active.pattern.groupContent, '#contentForm');
+    $('#contentForm').css('display', 'block');
     return false;
 }
 

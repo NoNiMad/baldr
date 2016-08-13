@@ -109,7 +109,7 @@ socket.on('content get data', function(data) {
         select.empty();
         select.append($('<option>'));
 
-        for(i in data.descriptors) {
+        for(let i in data.descriptors) {
             let desc = data.descriptors[i];
             let option = $('<option>');
             option.html(desc.name);

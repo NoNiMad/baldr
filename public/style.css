@@ -152,3 +152,5 @@ a:hover { text-decoration: underline; }
     width: 178px;
     margin-top: 10px;
 }
+
+#contentForm { display: none; }
