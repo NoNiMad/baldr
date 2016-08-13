@@ -48,6 +48,8 @@ function cleanUpEditingArea(newTitle) {
 
 // -- Boutons "New <smthg>"
 
+// Content Button
+
 function createNewContentButton() {
     var newContent = $('<li>');
     newContent.addClass('button');
@@ -77,9 +79,11 @@ function onNewContentButtonClick() {
         fillDefault(dataManager.active.pattern.groupCore, '#coreForm');
 }
 
+// Subcontent Button
+
 function createNewSubcontentButton() {
     var newContentBtn = $('<button>');
-    newContentBtn.html('New Sub-Content');
+    newContentBtn.html('New Subcontent');
     newContentBtn.on('click', onNewSubcontentButtonClick);
     $('#subcontentList').append(newContentBtn);
 }
@@ -90,6 +94,42 @@ function onNewSubcontentButtonClick() {
     fillDefault(dataManager.active.pattern.groupContent, '#contentForm');
     $('#contentForm').css('display', 'block');
     return false;
+}
+
+// Resource Button
+
+function createNewResourceButton() {
+    var newResBtn = $('<button>');
+    newResBtn.html('New Resource');
+    newResBtn.on('click', onNewResourceButtonClick);
+    $('#resourceList').append(newResBtn);
+}
+
+$('#resUpload').on('change', onNewResourceSelected);
+function onNewResourceButtonClick() {
+    let resUpload = $('#resUpload');
+    resUpload.click();
+    return false;
+}
+
+function onNewResourceSelected() {
+    let data = new FormData($('#resForm')[0]);
+    data.append('descriptor', dataManager.active.descriptor);
+
+    $.ajax({
+        url: '/upload/resource',
+        data: data,
+        cache: false,
+        contentType: false,
+        processData: false,
+        type: 'POST',
+        success: function(data) {
+            if(data === "ok") {
+                socket.emit('descriptor get content', dataManager.active.descriptor);
+                socket.emit('descriptor get form', dataManager.active.descriptor);
+            }
+        }
+    });
 }
 
 // -- Formulaires -- //

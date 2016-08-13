@@ -20,6 +20,7 @@ socket.on('descriptor get content', function(data) {
 
     var resourcesList = $('#resourceList');
     resourcesList.empty();
+    createNewResourceButton();
     var datalistImg = $('#resourcesImg');
     datalistImg.empty();
     var datalistModel = $('#resourcesModel');

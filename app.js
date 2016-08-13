@@ -9,8 +9,6 @@ var options = {
 };
 
 var bodyParser = require('body-parser');
-var multer  = require('multer');
-var upload = multer({ dest: 'temp' }).single('file');
 
 var app = require("sockpress").init(options);
 app.set('views', path.join(__dirname, 'views'));
