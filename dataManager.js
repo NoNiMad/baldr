@@ -65,12 +65,20 @@ module.exports = {
         return hash(fs.readFileSync(this.dataDir + path));
     },
     saveContent: function(descriptor, content, data) {
+        data.name = data.name.trim();
+        if(data.name === "")
+            return null;
+
         if(content === null) { // It's a new element
             content = data.name;
             if(this.patterns[descriptor].groupContent)
                 data.descriptors = [];
             this.contents[descriptor][content] = data;
         } else if(content !== data.name) { // It's an existing element, but the name was changed
+            // If an element already exists with the new name, don't override it
+            if(this.contents[descriptor][data.name])
+                return null;
+
             this.contents[descriptor][data.name] = JSON.parse(JSON.stringify(this.contents[descriptor][content]));
             delete this.contents[descriptor][content];
             delete this.contentDescriptors[descriptor].contentFiles[content];
@@ -95,11 +103,21 @@ module.exports = {
         return content;
     },
     saveSubContent: function(descriptor, content, id, data) {
+        data.name = data.name.trim();
+        if(data.name === "")
+            return null;
+
         let contentObj = this.contents[descriptor][content];
         if(id === null) { // It's a new element
             id = contentObj.descriptors.length;
             contentObj.descriptors.push(data);
         } else {
+            if(contentObj.descriptors[id].name !== data.name) {
+                for(let i in contentObj.descriptors) {
+                    if(contentObj.descriptors[i].name === data.name)
+                        return null;
+                }
+            }
             contentObj.descriptors[id] = data;
         }
 
