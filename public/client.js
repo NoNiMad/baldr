@@ -132,6 +132,13 @@ function onNewResourceSelected() {
     });
 }
 
+function onResourceDeleteButtonClick() {
+    socket.emit('delete resource', {
+        descriptor: dataManager.active.descriptor,
+        resource: $(this).parent().attr('data-name')
+    });
+}
+
 // -- Formulaires -- //
 
 // GroupCore

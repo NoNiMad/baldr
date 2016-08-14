@@ -1,8 +1,7 @@
 let path = require('path');
 let fs = require('fs');
-let hash = require('murmurhash-native').LE.murmurHash128x64;
 let multer  = require('multer');
-let upload = multer({ dest: 'temp' }).single('file');
+let upload = multer({ dest: 'temp' }).array('file');
 
 module.exports = function(app, dataManager) {
     app.get('/', function(req, res, next) {
@@ -21,12 +20,15 @@ module.exports = function(app, dataManager) {
     });
 
     app.post('/upload/resource', upload, function (req, res, next) {
-        let destPath = path.join(__dirname, '../data/' + req.body.descriptor + '/resources/' + req.file.originalname);
-        fs.renameSync(path.join(__dirname, '../temp/' + req.file.filename), destPath);
+        let output = "";
+        for(let i in req.files) {
+            output += dataManager.newResource(req.body.descriptor, req.files[i].filename, req.files[i].originalname);
+        }
 
-        dataManager.contentDescriptors[req.body.descriptor].resourceFiles[req.file.originalname] = hash(fs.readFileSync(destPath));
-        fs.writeFileSync(path.join(__dirname, '../data/' + req.body.descriptor + '.json'), JSON.stringify(dataManager.contentDescriptors[req.body.descriptor], null, '  '));
-
-        res.send('ok');
+        if(output === "") {
+            res.send('ok');
+        } else {
+            res.send(output);
+        }
     });
 }

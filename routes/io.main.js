@@ -47,6 +47,14 @@ module.exports = function(app, dataManager) {
             socket.emit('select content', data.content);
         });
 
+        socket.on('delete resource', function(data) {
+            dataManager.deleteResource(data.descriptor, data.resource);
+            socket.emit('descriptor get content', {
+                content: Object.keys(dataManager.contentDescriptors[data.descriptor].contentFiles).sort(),
+                resources: Object.keys(dataManager.contentDescriptors[data.descriptor].resourceFiles).sort()
+            });
+        });
+
         socket.on('disconnect', function() {  });
     });
 }

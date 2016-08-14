@@ -33,13 +33,12 @@ socket.on('descriptor get content', function(data) {
         if(res.endsWith('png')) {
             var img = $('<img/>');
             img.attr('src', '/res/' + dataManager.active.descriptor + '/' + res);
-            var span = $('<span>');
-            span.html(res);
             li.append(img);
-            li.append(span);
-        } else {
-            li.html(res);
         }
+        li.append($('<span>').html(res));
+        let btnDelete = $('<button>').html("Delete");
+        btnDelete.on('click', onResourceDeleteButtonClick);
+        li.append(btnDelete);
         li.attr('data-name', res);
         resourcesList.append(li);
 

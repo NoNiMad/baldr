@@ -144,5 +144,21 @@ module.exports = {
 
         this.contentDescriptors[descriptor].contentFiles[content] = hash(toWrite);
         fs.writeFileSync(this.dataDir + descriptor + '.json', JSON.stringify(this.contentDescriptors[descriptor], null, '  '));
+    },
+    newResource: function(descriptor, tempname, filename) {
+        try {
+            let destPath = this.dataDir + descriptor + '/resources/' + filename;
+            fs.renameSync('temp/' + tempname, destPath);
+            this.contentDescriptors[descriptor].resourceFiles[filename] = hash(fs.readFileSync(destPath));
+            fs.writeFileSync(this.dataDir + descriptor + '.json', JSON.stringify(this.contentDescriptors[descriptor], null, '  '));
+            return "";
+        } catch (e) {
+            return "Error treating " + filename + "\n";
+        }
+    },
+    deleteResource: function(descriptor, resource) {
+        delete this.contentDescriptors[descriptor].resourceFiles[resource];
+        fs.unlinkSync(this.dataDir + descriptor + '/resources/' + resource);
+        fs.writeFileSync(this.dataDir + descriptor + '.json', JSON.stringify(this.contentDescriptors[descriptor], null, '  '));
     }
 }
