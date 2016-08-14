@@ -139,6 +139,14 @@ function onResourceDeleteButtonClick() {
     });
 }
 
+function onResourceRenameButtonClick() {
+    socket.emit('rename resource', {
+        descriptor: dataManager.active.descriptor,
+        oldName: $(this).parent().attr('data-name'),
+        newName: prompt('New resource name (including extension)')
+    });
+}
+
 // -- Formulaires -- //
 
 // GroupCore

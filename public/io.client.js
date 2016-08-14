@@ -36,9 +36,16 @@ socket.on('descriptor get content', function(data) {
             li.append(img);
         }
         li.append($('<span>').html(res));
+        li.append($('<br>'));
+
+        let btnRename = $('<button>').html("Rename");
+        btnRename.on('click', onResourceRenameButtonClick);
+        li.append(btnRename);
+
         let btnDelete = $('<button>').html("Delete");
         btnDelete.on('click', onResourceDeleteButtonClick);
         li.append(btnDelete);
+
         li.attr('data-name', res);
         resourcesList.append(li);
 

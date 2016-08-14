@@ -156,6 +156,12 @@ module.exports = {
             return "Error treating " + filename + "\n";
         }
     },
+    renameResource: function(descriptor, oldName, newName) {
+        this.contentDescriptors[descriptor].resourceFiles[newName] = this.contentDescriptors[descriptor].resourceFiles[oldName];
+        delete this.contentDescriptors[descriptor].resourceFiles[oldName];
+        fs.renameSync(this.dataDir + descriptor + '/resources/' + oldName, this.dataDir + descriptor + '/resources/' + newName);
+        fs.writeFileSync(this.dataDir + descriptor + '.json', JSON.stringify(this.contentDescriptors[descriptor], null, '  '));
+    },
     deleteResource: function(descriptor, resource) {
         delete this.contentDescriptors[descriptor].resourceFiles[resource];
         fs.unlinkSync(this.dataDir + descriptor + '/resources/' + resource);
