@@ -2,8 +2,10 @@ let path = require('path');
 let fs = require('fs');
 let multer  = require('multer');
 let upload = multer({ dest: 'temp' }).array('file');
+let logger = require('winston').loggers.get('global');
+let dataManager = require('../dataManager');
 
-module.exports = function(app, dataManager) {
+module.exports = function(app) {
     app.get('/', function(req, res, next) {
         /*
         if(!req.session.logged) {
@@ -20,15 +22,10 @@ module.exports = function(app, dataManager) {
     });
 
     app.post('/upload/resource', upload, function (req, res, next) {
-        let output = "";
         for(let i in req.files) {
-            output += dataManager.newResource(req.body.descriptor, req.files[i].filename, req.files[i].originalname);
+            dataManager.newResource(req.body.descriptor, req.files[i].filename, req.files[i].originalname);
         }
 
-        if(output === "") {
-            res.send('ok');
-        } else {
-            res.send(output);
-        }
+        res.send('ok');
     });
 }

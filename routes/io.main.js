@@ -1,6 +1,8 @@
 let async = require('async');
+let logger = require('winston').loggers.get('global');
+let dataManager = require('../dataManager');
 
-module.exports = function(app, dataManager) {
+module.exports = function(app) {
     app.io.on('connection', function(socket) {
         //if(!socket.session.logged) return socket.disconnect();
 
