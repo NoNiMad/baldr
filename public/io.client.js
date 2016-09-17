@@ -135,6 +135,7 @@ socket.on('select content', function(content) {
     $('#contentList li.active').removeClass('active');
     $('#contentList li[data-name="' + content + '"]').addClass('active');
     dataManager.active.setContent(content);
+    $('#contentForm').css('display', 'none');
     socket.emit('content get data', {
         descriptorName: dataManager.active.descriptor,
         contentName: dataManager.active.content

@@ -1,4 +1,4 @@
-var async = require('async');
+let async = require('async');
 
 module.exports = function(app, dataManager) {
     app.io.on('connection', function(socket) {
