@@ -1,6 +1,9 @@
+let fs = require('fs');
 let winston = require('winston');
 let app = require('./app');
 let dataManager = require('./dataManager');
+
+if (!fs.existsSync('logs')) { fs.mkdirSync('logs'); }
 
 function getFileTransport(name, filename, level) {
     return new (winston.transports.File)({
