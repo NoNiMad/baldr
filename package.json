@@ -9,6 +9,7 @@
     "express-session": "^1.11.3",
     "multer": "^1.1.0",
     "murmurhash-native": "^3.2.0",
+    "mv": "^2.1.1",
     "pug": "^2.0.0-beta3",
     "session-file-store": "^0.0.16",
     "sockpress": "^1.0.0",

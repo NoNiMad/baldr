@@ -1,5 +1,6 @@
 let async = require('async');
 let fs = require('fs');
+let mv = require('mv');
 let hash = require('murmurhash-native').LE.murmurHash128x64;
 let logger = require('winston').loggers.get('dataManager');
 
@@ -199,7 +200,7 @@ module.exports = {
     },
     newResource: function(descriptor, tempname, filename) {
             let destPath = this.dataDir + descriptor + '/resources/' + filename;
-            fs.rename('temp/' + tempname, destPath, (err) => {
+            mv('temp/' + tempname, destPath, {clobber: false}, (err) => {
                 logFileRenamingResult(err, 'temp/' + tempname, destPath);
                 if(!err) {
                     this.contentDescriptors[descriptor].resourceFiles[filename] = hash(fs.readFileSync(destPath));
@@ -215,7 +216,7 @@ module.exports = {
 
         let origPath = this.dataDir + descriptor + '/resources/' + oldName;
         let destPath = this.dataDir + descriptor + '/resources/' + newName;
-        fs.rename(origPath, destPath, (err) => {
+        mv(origPath, destPath, {clobber: false}, (err) => {
             logFileRenamingResult(err, origPath, destPath);
             if(!err) {
                 this.writeDescriptorFile(descriptor);
