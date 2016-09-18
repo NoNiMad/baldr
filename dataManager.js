@@ -5,19 +5,19 @@ let logger = require('winston').loggers.get('dataManager');
 
 function logFileWritingResult(err, path) {
     if (err)
-        return logger.error('Writing "' + path + '" failed', error);
+        return logger.error('Writing "' + path + '" failed', err);
     logger.debug('Successfully wrote "' + path + '"');
 }
 
 function logFileRemovingResult(err, path) {
     if (err)
-        return logger.error('Removing "' + path + '" failed', error);
+        return logger.error('Removing "' + path + '" failed', err);
     logger.debug('Successfully removed "' + path + '"');
 }
 
 function logFileRenamingResult(err, origin, dest) {
     if (err)
-        return logger.error('Renaming "' + origin + '" to "' + dest + '" failed', error);
+        return logger.error('Renaming "' + origin + '" to "' + dest + '" failed', err);
     logger.debug('Successfully renamed "' + origin + '" to "' + dest + '"');
 }
 
